@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+<title> Muhia - Inicio</title>
+
+{% endblock %}
+
+{% block content %}
+<section id="banner">
+  <div class="container-fluid">
+    <div id="header-carousel" class="carousel slider" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        {% for i in banners %}
+        {% if i.activo %}
+        {% if i.pcpal %}
+          <div class="carousel-item active" style="width: 100%;">
+            <a href="{{ i.enlace }}"><img class="img-fluid" src="{{ i.get_image_url }}" alt="{{i.title}}"></a>
+          </div>
+          {% else %}
+          <div class="carousel-item" style="width: 100%;">
+            <a href="{{ i.enlace }}"><img class="img-fluid" src="{{ i.get_image_url }}" alt="{{i.title}}"></a>
+          </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+      </div>
+      <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+        <div class="btn btn-dark" style="width: 45px; height: 45px;">
+          <span class="carousel-control-prev-icon mb-n2"></span>
+        </div>
+      </a>
+      <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+        <div class="btn btn-dark" style="width: 45px; height: 45px;">
+          <span class="carousel-control-next-icon mb-n2"></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre_nosotros" class="page-section py-0 my-0">
+  <div class="container py-2">
+    <div class="row mb-1" data-aos="zoom-in" data-aos-delay="50">
+        <h2 class="font-weight-bold text-center " style="font-family: roboto; color: #153d50;">¿QUIENES SOMOS?</h2>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col-12 col-lg-6 col-md-6" >
+      <img class="rounded img-fluid" src="{% static 'img/info_rectangular.webp' %}" style="align-content: center;">
+    </div>
+    <div class="carousel slider col-12 col-lg-6 col-md-6 " id="carrusel_imagenes">
+      <div class="carousel-inner">
+          {% for i in g_imagenes %}
+          {% if i.activo %}
+          {% if i.is_princ %}
+          <div class="carousel-item active" style="width: 100%;">
+            <img class="img-fluid" src="{{ i.get_image_url }}" alt="{{i.title}}">
+          </div>
+          {% else %}
+          <div class="carousel-item" style="width: 100%;">
+            <img class="img-fluid" src="{{ i.get_image_url }}" alt="{{i.title}}">
+          </div>
+          {% endif %}
+          {% endif %}
+          {% endfor%}
+        <a class="carousel-control-prev" href="#carrusel_imagenes" data-slide="prev">
+          <div class="btn btn-dark" style="width: 45px; height: 45px;">
+            <span class="carousel-control-prev-icon mb-n2"></span>
+          </div>
+        </a>
+        <a class="carousel-control-next" href="#carrusel_imagenes" data-slide="next">
+          <div class="btn btn-dark" style="width: 45px; height: 45px;">
+            <span class="carousel-control-next-icon mb-n2"></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="Productos_promo" class="page-section py-0 my-0" >
+    <div class="container py-5">
+      <div class="row mb-1">
+          <div class="col-md-8 col-xl-6 text-center mx-auto" data-aos="zoom-in" data-aos-delay="50">
+              <h2 class="font-weight-bold" style="font-family: roboto; color: #153d50;">¿QUÉ OFRECEMOS?</h2>
+          </div>
+      </div>
+    </div>
+    <!-- h-100 position-relative // style="position: relative;"col-xl-10 col-xl-5 -->
+    <div class="row" >
+      <div class="col-12 col-lg-8 col-md-10" style="border-right: #153d50; border-style: solid; border-left: none;border-top: none; border-bottom: none;">
+        <div class="row" data-aos="zoom-in" data-aos-delay="50">
+          <h3 class="font-weight-bold" style="font-family: roboto; color: #153d50; text-align: center;">Productos</h3>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-6 col-md-6"> 
+            <div class="card" style="top: 0px; border: 0px;">
+              <img class="card-img-top img-fluid d-block" id="banner_tarjeta_productos" data-aos="zoom-in" data-aos-delay="100" src="{% static 'img/tarjetas/productos.png' %}" width="60%" height="30%">
+                <div class="card-body pt-3">
+                    <h4 class="font-weight-bold card-title" style="font-family: Roboto, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #153d50; font-variant: small-caps;">productos de higiene</h4>
+                    <p class="card-text" style="font-family: roboto; color: #153d50;line-height: normal; text-align: justify;">Fórmulas únicas, diseñadas para facilitar la desinfección, limpieza e higiene personal, de tu hogar, tu negocio y tu automóvil. <br>
+                    Soluciones para todos los materiales, superficies y dificultades. Conoce nuestros productos de alta calidad, certificados 100%, respetuosos con el medio ambiente en su elaboración y uso.
+                    </p>
+                    <div class="row">
+                      <ul class="col-6" style="font-family: Roboto, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; list-style: none; line-height: 250%; margin: 0; padding: 0%;">
+                        <li><a class="btn btn-block align-items-end" style="background:#153d50; width: fit-content; height: fit-content; color: white; line-height: 100%;" href="https://tienda.produccionesmuhia.ca/catalogo/categoria/higiene_hogar/">Higiene del hogar</a></li>
+                        <li><a class="btn btn-block align-items-end" style="background:#153d50; width: fit-content; height: fit-content; color: white; line-height: 100%;" href="https://tienda.produccionesmuhia.ca/catalogo/categoria/higiene-personal/">Higiene personal</a></li>
+                      </ul>
+                      <ul class="col-6" style="font-family: Roboto, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; list-style: none; line-height: 250%; margin: 0; padding: 0%;">
+                        <li"><a class="btn btn-block align-items-end" style="background:#153d50; width: fit-content; height: fit-content; color: white; line-height: 100%;" href="https://tienda.produccionesmuhia.ca/catalogo/categoria/linea-automotriz/">Línea automotriz</a></li>
+                        <li><a class="btn btn-block align-items-end" style="background:#153d50; width: fit-content; height: fit-content; color: white; line-height: 100%;" href="#">Línea institucional</a></li>
+                      </ul>  
+                    </div>
+                </div>                
+            </div>
+          </div>
+          <div class="col-12 col-lg-6 col-md-6">
+            <div class="card" style="top: 0px; border: 0px;">
+              <img class="card-img-top img-fluid d-block" id="banner_tarjeta_materias_primas" data-aos="zoom-in" data-aos-delay="100" src="{% static 'img/tarjetas/materias_primas.png' %}" width="100%" height="50%">
+                <div class="card-body pt-3">
+                    <h4 class="font-weight-bold card-title" style="font-family: Roboto, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #153d50; font-variant: small-caps;">materias primas&nbsp;</h4>
+                    <p class="card-text" style="font-family: roboto; color: #153d50;line-height: normal; text-align: justify;">La opción más segura para el suministro de materias primas de calidad. <br>
+                    Todo lo que necesitas para mantener tu ritmo productivo. <br>
+                    Entérate de la variedad de opciones a tu disposición.
+                    </p>
+                    <div class="row">
+                      <ul class="col-6 " style="font-family: Roboto, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; list-style: none; line-height: 250%; margin: 0; padding: 0%;">
+                          <li><a class="btn btn-block align-items-end" style="background:#153d50; width: fit-content; height: fit-content; color: white; line-height: 100%;" href="https://tienda.produccionesmuhia.ca/catalogo/categoria/materias-primas/">Tensoactivos</a></li>
+                          <li><a class="btn btn-block align-items-end" style="background:#153d50; width: fit-content; height: min-content; color: white; line-height: 100%;" href="https://tienda.produccionesmuhia.ca/catalogo/categoria/materias-primas/">Preservantes</a></li>
+                          <li><a class="btn btn-block align-items-end" style="background:#153d50; width: fit-content; height: min-content; color: white; line-height: 100%;" href="https://tienda.produccionesmuhia.ca/catalogo/categoria/materias-primas/">Espesantes</a></li>
+                      </ul>
+                      <ul class="col-6" style="font-family: Roboto, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; list-style: none; line-height: 250%; margin: 0; padding: 0%;">
+                        <li><a class="btn btn-block align-items-end" style="background:#153d50; width: fit-content; height: fit-content; color: white; line-height: 100%;" href="https://tienda.produccionesmuhia.ca/catalogo/categoria/materias-primas/">Fragancias y colorantes</a></li>
+                        <li><a class="btn btn-block align-items-end" style="background:#153d50; width: fit-content; height: min-content; color: white; line-height: 100%;" href="https://tienda.produccionesmuhia.ca/catalogo/categoria/materias-primas/">Humectantes</a></li>
+                        <li><a class="btn btn-block align-items-end" style="background:#153d50; width: fit-content; height: min-content; color: white; line-height: 100%;" href="https://tienda.produccionesmuhia.ca/catalogo/categoria/materias-primas/">Bases y otros</a></li>
+                      </ul>
+                    </div> 
+                </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-12 col-lg-4 col-md-4 simple-slider" id="carrusel_eventos">
+        <div class="row mb-1 text-center mx-auto" data-aos="zoom-in" data-aos-delay="50">
+          <h3 class="font-weight-bold text-center" style="font-family: roboto; color: #153d50;">Intercambios</h3>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+              {% for i in event %}
+              <div class="swiper-slide card" style="top: 0px; border: 0px;">
+                <a href="{{i.enlace}}"><img class="card-img-top img-fluid d-block" id="banner_tarjeta_noticia" data-aos="zoom-in" data-aos-delay="100" src="{{ i.get_image_url }}" width="60%" height="40%"></a>
+                  <div class="card-body pt-3">
+                      <h4 class="font-weight-bold card-title" style="font-family: Roboto, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #153d50; font-variant: small-caps;">{{i.title}}</h4>
+                      <p>{{i.description}}</p>
+                      <a href="{{i.enlace}}" style="color: var(--purple);">Leer mas&nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
+                        </svg></a>  
+                  </div>                
+              </div>
+              {% endfor%}  
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+<!--style="margin-left: 5%;"-->
+<section id="Eventos_curiosidades" class="page-section py-0 my-0"> 
+  <div class="row py-5">
+    <div class="col-12 col-lg-4 col-md-4 simple-slider" id="carrusel_notas" >
+      <div class="row mb-1 text-center mx-auto" data-aos="zoom-in" data-aos-delay="50">
+        <h3 class="font-weight-bold text-center" style="font-family: roboto; color: #153d50;">Notas Interesantes</h3>
+      </div>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          {% for elem in curios %}
+          {% if elem.activo%}
+          <div class="swiper-slide card" style="top: 0px; border: 0px;">
+            <a href="content/{{elem.id}}"><img class="card-img-top img-fluid d-block" id="banner_tarjeta_noticia" data-aos="zoom-in" data-aos-delay="100" src="{{ elem.get_image_url }}" width="60%" height="40%"></a>
+              <div class="card-body pt-3">
+                  <h4 class="font-weight-bold card-title" style="font-family: Roboto, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #153d50; font-variant: small-caps;">{{elem.title}}</h4>
+                  <p>{{elem.subtitle}}</p>
+                  <a href="content/{{elem.id}}" style="color: var(--purple);">Leer mas&nbsp;
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                      <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
+                    </svg></a>  
+              </div>                
+          </div>
+          {% endif %}
+          {% endfor%}  
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-8 col-md-8 simple-slider" id="carrusel_catalogo">
+      <div class="swiper-container slider1">
+        <div class="swiper-wrapper">
+          {% for i in catalog %}
+          {% if i.activo %}
+          <div data-aos="slide-left" data-aos-duration="100" data-aos-delay="20" class="swiper-slide" style = "background: url('{{i.get_image_url}}') 50% 50% / cover no-repeat;"></div>
+          {% endif %}
+          {% endfor%}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

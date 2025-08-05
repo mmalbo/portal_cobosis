@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>Muhia - Productos</title>
+    {% endblock %}
+
+{% block content %}
+
+<section id="banner_tienda_productos">
+  <div id="Productos_promo" class="container h-100 position-relative" >
+      <div class="row row-cols-2 row-cols-md-2 row-cols-lg-2">
+          <div class="col mb-5">
+              <div class="card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="50"><img class="card-img-top w-50 d-block" id="banner_tarjeta_productos" src="{% static 'img/carousel1.png' %}" width="410" height="135">
+                  <div class="card-body pt-3">
+                      <h4 class="font-weight-bold card-title" style="font-family: 'Abril Fatface', serif;">Productos de higiene</h4>
+                      <p class="card-text" style="font-family: Lora, serif;">Todo lo mejor que necesitas para tu hogar o tu negocio en temas de higiene personal y de superficies. Incluso para tus vehículos tenemos otras ofertas:</p>
+                      <ul style="color: var(--purple);font-family: Lora, serif;">
+                          <li><a href="#" style="color: var(--purple);">Higiene del hogar</a></li>
+                          <li><a href="#" style="color: var(--purple);">Higiene personal</a></li>
+                          <li style="color: var(--purple);"><a href="#" style="color: var(--purple);">Para piscinas</a></li>
+                          <li style="color: var(--purple);"><a href="#" style="color: var(--purple);">Línea automotriz</a></li>
+                      </ul>
+                  </div>
+                  <div class="card-footer"><a href="#" style="color: var(--indigo);">Conocer más&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
+                          </svg></a></div>
+              </div>
+          </div>
+          <div class="col mb-7">
+              <div class="card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="50"><img class="card-img-top w-100 d-block" id="banner_tarjeta_materias_primas" src={% static 'img/materias_primas.png' %} width="410" height="135">
+                  <div class="card-body pt-3">
+                      <h4 class="font-weight-bold card-title" style="font-family: 'Abril Fatface', serif;">Materias primas&nbsp;</h4>
+                      <p class="card-text" style="font-family: Lora, serif;">Te ayudamos a obtener las mejores materias primas del mercado para tus producciones.</p>
+                  </div>
+                  <ul style="font-family: Lora, serif;">
+                      <li><a href="#" style="background: rgba(47,23,15,0);color: var(--purple);">Tensoactivos</a></li>
+                      <li style="background: rgba(47,23,15,0);color: var(--purple);"><a href="#" style="background: rgba(47,23,15,0);color: var(--purple);">Preservantes</a></li>
+                      <li style="background: rgba(47,23,15,0);color: var(--purple);"><a href="#" style="background: rgba(47,23,15,0);color: var(--purple);">Espesantes y gelificantes</a></li>
+                      <li style="background: rgba(47,23,15,0);color: var(--purple);"><a href="#" style="background: rgba(47,23,15,0);color: var(--purple);">Fragancias y colorantes</a></li>
+                      <li style="background: rgba(47,23,15,0);color: var(--purple);"><a href="#" style="background: rgba(47,23,15,0);color: var(--purple);">Humectantes y nutrientes</a></li>
+                      <li style="background: rgba(47,23,15,0);color: var(--purple);"><a href="#" style="background: rgba(47,23,15,0);color: var(--purple);">Bases y otros</a></li>
+                  </ul>
+                  <div class="card-footer"><a href="#" style="color: var(--indigo);">Conocer más&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
+                          </svg></a></div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section id="Eventos_curiosidades" class="page-section clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="simple-slider">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div data-aos="slide-left" data-aos-duration="600" data-aos-delay="50" class="swiper-slide" style="background: url({{img1.get_image_url}}) center center / cover no-repeat;"></div>
+                                {% for i in g_imagenes %}
+                                {% if i.is_product %}
+                                <div class="swiper-slide" style="background: url({{i.get_image_url}}) center center / cover no-repeat;"></div>
+                                {% endif %}
+                                {% endfor %}
+                                <!-- <div class="swiper-slide" style="background: url(&quot;static/img/carousel/carousel3.jpeg&quot;) center center / cover no-repeat;"></div>
+                                <div class="swiper-slide" style="background: url(&quot;static/img/galeria3.jpg&quot;) center center / cover no-repeat;"></div>
+                                <div class="swiper-slide" style="background: url(&quot;static/img/galeria4.jpg&quot;) center center / cover no-repeat;"></div>
+                                <div class="swiper-slide" style="background: url(&quot;static/img/galeria5.jpg&quot;) center center / cover no-repeat;"></div>
+                                <div class="swiper-slide" style="background: url(&quot;static/img/galeria6.jpg&quot;) center center / cover no-repeat;"></div>
+                                <div class="swiper-slide" style="background: url(&quot;static/img/galeria7.jpg&quot;) center center / cover no-repeat;"></div> -->
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card" style="background: rgba(255,255,255,0);">
+                                <div class="card-body" style="background: rgba(255,255,255,0);">
+                                    <h2 class="card-title" data-aos="fade" data-aos-duration="50" data-aos-delay="50" style="color: var(--indigo);font-weight: bold;font-family: 'Abril Fatface', serif;">Curiosidades</h2>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="d-flex align-items-center align-items-md-start align-items-xl-center" data-aos="slide-up" data-aos-duration="600" data-aos-delay="50"><img class="py-1 mx-2" src={% static 'img/imperio_romano.jpeg' %} style="position: relative;" width="102" height="104">
+                                                    <div>
+                                                        <h4 class="font-weight-bold" style="max-width: 300px;"><strong>El jabón tuvo su origen en el Imperio Romano</strong>.</h4>
+                                                        <p>Así reza la leyenda del Monte Sapo, donde las túnicas de los soldados y ciudadanos que se acercaban a las laderas ...</p><a href="#" style="color: var(--purple);">Conoce más&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right" style="color: var(--purple);">
+                                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
+                                                            </svg></a>
+                                                    </div>
+                                                </div>
+                                                <hr class="my-5">
+                                                <div class="d-flex align-items-center align-items-md-start align-items-xl-center" data-aos="fade-down" data-aos-duration="50" data-aos-delay="600">
+                                                    <div>
+                                                        <h4 class="font-weight-bold" style="max-height: 230px;max-width: 290px;"><strong>Nunca combines lejía y amoniaco.</strong></h4>
+                                                        <p>Al mezclar estos dos productos se produce un gas denominado cloramina que puede dar lugar a graves quemaduras en la piel...</p><a href="#" style="color: var(--purple);">Conoce más&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
+                                                            </svg></a>
+                                                    </div><img class="py-1 mx-2" src={% static 'img/lejia-amoniaco.jpg' %} width="109" height="110">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+{% endblock %}

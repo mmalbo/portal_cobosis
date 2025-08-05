@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>Muhia</title>
+    {% endblock %}
+
+{% block content %}
+
+<section id="Curiosidades class="page-section">
+    <div class="container py-3 py-xl-3">
+        <div class="row mb-1">
+            <div class="col-md-8 col-xl-6 text-center mx-auto" data-aos="zoom-in" data-aos-delay="50">
+                <h2 class="font-weight-bold" style="font-family: 'Abril Fatface', serif;">{{ object.title }}</h2>
+            </div>
+        </div>
+        <img src="{{object.img}}">
+        <div>
+            {{ object.content|safe }}
+        </div>
+    </div>
+</section>
+
+<section id="app">
+    <div class="container">
+      <div class="row">
+        <div class="col-10">
+            {% for comment in object.comments.all %}
+            <div class="comment">
+                <div class="date">{{ comment.created_date }}</div>
+                <strong>{{ comment.author }}:</strong> {{ comment.text|linebreaks }}
+                -----------------
+            </div>
+            {% empty %} <p>Aún no hay comentarios :(</p>            
+            {% endfor %}
+            <a href="{% url 'agregar_comentario' pk=object.id %}" type="submit" class="btn btn-primary">Comentar</a>
+        </div><!--End col -->
+      </div><!-- End row -->
+      <div class="row">
+        <!--<div class="col-6">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% load widget_tweaks %}
+                <div class="form-group">
+                  <label for="nombre" class="txt_negrita">Nombre</label>
+                  {{ form.author|add_class:"form-control" }} 
+                </div>
+                <div class="form-group">
+                  <label for="activo" class="txt_negrita">Comentario</label>
+                  {{ form.text|add_class:"form-control" }} 
+                </div>
+                <button type="submit" class="btn btn-primary">Aceptar</button>
+                <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+              </form>
+        </div> End col -->
+      </div><!--End Row -->
+    </div><!--End Container -->
+  </section>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Muhia - Admininstración</title>
+{% endblock %}
+
+{% block content %}
+<section class="content-header">
+    <div class="content-header x_panel x_title">
+        <h2 class="mt-3" style="color:#036481; font-family: Lora, serif;">Miembros del equipo MUHIA que pueden ser de interés público.</h2>
+        <div class="offset-1"><a href="{% url 'crear_miembro' %}" class="nav-link active" aria-current="page" data-placement="top" title="Agregar" style="align-content: end;color:#036481; font-family: Lora, serif;"><i class="fa fa-plus">Añadir nuevo</i></a>
+        </div>
+    </div>
+</section>
+  
+  {% if messages %}
+  <ul class="messages list-group mb-3">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Paginación -->
+        <table class="table table-hover" style="align-content: center;">
+          <thead>
+            <tr>
+              <th width="25%">Nombre y apellidos</th>
+              <th width="10%">Foto</th>
+              <th width="10%">Cargo</th>
+              <th width="30%">Descripción</th>
+              <th width="20%">Fecha de actualización</th>
+              <th width="10%">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+          <!-- Recorremos los objetos o registros que tenemos en nuestra tabla 'jugos' y los listamos -->
+          {% for elem in object_list %}
+            <tr>
+              <td>{{ elem.nombre_apellidos }}</td>
+              <td><img src="{{elem.get_image_url}}" alt="{{elem.foto.alt}}" class="img-fluid" ></td>
+              <td>{{ elem.cargo}}</td>
+              <td>{{ elem.descripcion | safe}}</td>
+              <td>{% if elem.updated %} {{elem.updated}} {% else %} {{elem.created}} {% endif %}</td>
+              <td>
+                <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o jugo desde la misma tabla HTML -->                        
+                <form method="POST" action="eliminar/{{elem.id}}">
+                  {% csrf_token %}
+                  <div class="btn-group">
+                    <!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros o jugos -->
+                    <!--<a href="detalle/{{elem.id}}" title="Ver" type="button" class="btn btn-success">Ver </a>-->
+                    <a href="editar/{{elem.id}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                    <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+                      Eliminar
+                    </button>
+                  </div>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+          <script type="text/javascript">
+            function eliminar() {
+              var x = confirm("¿Está seguro de que desea eliminar el objeto seleccionado?");
+              if (x)
+                return true;
+              else
+                return false;
+            }
+          </script>
+          </tbody>
+      </table>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

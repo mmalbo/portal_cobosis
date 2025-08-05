@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Muhia - Admininstración</title>
+{% endblock %}
+
+{% block content %}
+<section class="content-header">
+  <div class="content-header x_panel x_title">
+      <h2 class="mt-3" style="color:#036481; font-family: Lora, serif;">Páginas generales de contenidos.</h2>
+      
+  </div>
+</section>
+  
+  {% if messages %}
+  <ul class="messages list-group mb-3">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <div class="container mt-3">
+    <div class="col-12">
+      <form method="post" enctype="multipart/form-data">
+        <!-- # Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro -->
+        {% csrf_token %}
+        {% load widget_tweaks %}
+                
+        <!-- {{ form.as_p }} -->
+        <div class="form-group">
+          <label for="nombre" class="txt_negrita">Título</label>
+          {{ form.title|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+        </div>
+        <div class="form-group">
+          <label for="activo" class="txt_negrita">Respuesta</label>
+          {{ form.content|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+        </div>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
+        <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

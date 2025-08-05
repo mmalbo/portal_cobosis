@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>Muhia - Notas interesantes</title>
+    {% endblock %}
+
+{% block content %}
+
+    <section id="sobre_nosotros" class="page-section">
+        <div class="container py-3 py-xl-3">
+            <div class="row mb-1">
+                <div class="col mx-auto" data-aos="zoom-in" data-aos-delay="50" style="text-align: justify;">
+                    <h2 class="font-weight-bold" style="font-family: 'Abril Fatface', serif;">Curiosidades y Notas interesantes</h2>
+                    <ul>
+                        <br>
+                        {%for p in curio %}
+                            <h4 class="font-weight-bold">{{p.title}}</h4>
+                            <img class="rounded img-fluid" data-aos="flip-up"  src={{p.get_image_url}}>
+                            <h6 class="font-weight-bold">{{p.subtitle}}</h6>
+                            <p>{{p.content}}.</p>
+                            <br>
+                        {% endfor%}
+                    </ul>
+                </div>
+            </div>
+        </div>
+   </section>
+
+{% endblock %}
