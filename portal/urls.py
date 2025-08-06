@@ -12,7 +12,7 @@ urlpatterns = [
     path('eventos/', views.eventos, name="event"),
     path('preguntas/', views.preguntas, name="preguntas"),
     path('contacto/', views.contacto, name="contacto"),
-    path('content/', include('news.urls')),
+    path('productos/', include('productos.urls')),
     path('accounts', include('django.contrib.auth.urls')),
     path('accounts', include('registration.urls')),
 ]

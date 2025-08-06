@@ -28,9 +28,9 @@ DEBUG = True
 
 LOGOUT_REDIRECT_URL = '/'
 
-#     # Configurar el envío de correos
+#     # Configurar el envï¿½o de correos
 if DEBUG:
-    ALLOWED_HOSTS = ['*','produccionesmuhia.ca']
+    ALLOWED_HOSTS = ['*']
     EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
     EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
     EMAIL_HOST = ''
@@ -39,7 +39,7 @@ if DEBUG:
     EMAIL_HOST_PASSWORD = ''
     EMAIL_USE_TLS = True
 else:    
-    ALLOWED_HOSTS = ['*','produccionesmuhia.ca']
+    ALLOWED_HOSTS = ['*']
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_PORT = 587
     EMAIL_HOST_USER = 'ycocab@gmail.com'
@@ -64,7 +64,7 @@ INSTALLED_APPS = [
     
     'portal.apps.PortalConfig',
     'contact.apps.ContactConfig',
-    'news.apps.NewsConfig',
+    'productos.apps.ProductosConfig',
     'pages',#.apps.PagesCongig',
     'registration.apps.RegistrationConfig',
     'galeria.apps.GaleriaConfig',
@@ -166,7 +166,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Configuración de los bloques de edición de texto
+# Configuraciï¿½n de los bloques de ediciï¿½n de texto
 customColorPalette = [
         {
             'color': 'hsl(4, 90%, 58%)',

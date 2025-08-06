@@ -1,0 +1,15 @@
+[
+    {
+        "model": "productos.product",
+        "pk": 2,
+        "fields": {
+            "name": "Sistema de Gestión de Inventarios y Producción",
+            "slug": "gippro",
+            "product_type": "inventory",
+            "description": "Digitaliza y optimiza el flujo de materiales, desde la compra de materias primas, envases, embalajes e insumos, hasta la salida del almacén del producto final. Ideal para pequeñas manufacturas y talleres.",
+            "features": "Gestión de compras de materias primas, envases, embalajes e insumos.;Control preciso de entradas y salidas de almacén (inventario).;Seguimiento de la entrada y salida de la producción.;Análisis estadísticos e inteligente de costos, rendimiento y eficiencia.",
+            "benefits": "Reduce costos por pérdidas, robos o compras innecesarias.;Aumenta la eficiencia al tener visibilidad total de tu operación.;Mejora la planificación de compras y producción.;Identifica cuellos de botella y oportunidades de mejora con análisis de datos.",
+            "business_model": "Pago inicial (ajustado al nivel de personalización deseado) + soporte y mantenimiento mensual."
+        }
+    }
+]

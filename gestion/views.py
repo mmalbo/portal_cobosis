@@ -26,7 +26,6 @@ from django.utils.decorators import method_decorator
 from registration.views import superuser_only
 from galeria.models import *
 from enlac_preg.models import *
-from news.models import *
 from pages.models import *
 from equipo.models import *
 
@@ -147,75 +146,6 @@ class eliminar_pregunta(SuccessMessageMixin, DeleteView):
         messages.success (self.request, (success_message))       
         return reverse('pregunta') # Redireccionamos a la vista principal
 
-#------- Gestión de Cursiosidades ------------------
-class gestion_curiosidades(ListView):
-    model = Curio
-
-class crear_curiosidades(SuccessMessageMixin, CreateView):
-    model = Curio
-    form = Curio
-    fields = "__all__"
-    success_message = "Se ha subido correctamente la nueva Curiosidad/Noticia."
-
-    def get_success_url(self):
-        return reverse('curiosidades')
-
-class detal_curiosidades(DetailView):
-    model = Curio
-
-class actualizar_curiosidades(SuccessMessageMixin, UpdateView):
-    model = Curio
-    form = Curio
-    fields = "__all__"
-    success_message = "Se ha actualizado correctamente la curiosidad/noticia."
-
-    def get_success_url(self):
-        return reverse('curiosidades')
-
-class eliminar_curiosidades(SuccessMessageMixin, DeleteView):
-    model = Curio
-    form = Curio
-    fields = "__all__"
-
-    def get_success_url(self): 
-        success_message = 'Curiosidad/Noticia eliminada correctamente!'
-        messages.success (self.request, (success_message))       
-        return reverse('curiosidades') # Redireccionamos a la vista principal
-    
-#------- Gestión de Eventos ------------------
-class gestion_eventos(ListView):
-    model = Event
-
-class crear_eventos(SuccessMessageMixin, CreateView):
-    model = Event
-    form = Event
-    fields = "__all__"
-    success_message = "Se ha subido correctamente el nuevo evento."
-
-    def get_success_url(self):
-        return reverse('eventos')
-
-class detal_eventos(DetailView):
-    model = Event
-
-class actualizar_eventos(SuccessMessageMixin, UpdateView):
-    model = Event
-    form = Event
-    fields = "__all__"
-    success_message = "Se ha actualizado correctamente el evento."
-
-    def get_success_url(self):
-        return reverse('eventos')
-
-class eliminar_eventos(SuccessMessageMixin, DeleteView):
-    model = Event
-    form = Event
-    fields = "__all__"
-
-    def get_success_url(self): 
-        success_message = 'Evento eliminada correctamente!'
-        messages.success (self.request, (success_message))       
-        return reverse('eventos') # Redireccionamos a la vista principal
 
 #------- Gestión de Páginas de Políticas ------------------
 class gestion_paginas(ListView):

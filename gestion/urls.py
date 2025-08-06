@@ -34,15 +34,6 @@ urlpatterns = [
     path('pregunta/crear', crear_pregunta.as_view(template_name = "gestion/pregunta_crear.html"), name='crear_pregunta'),
     path('pregunta/editar/<int:pk>', actualizar_pregunta.as_view(template_name = "gestion/pregunta_actualizar.html"), name='actualizar_pregunta'),
     #------- Gestión de curiosidades ------------------
-    path('curiosidades/', gestion_curiosidades.as_view( template_name="gestion/curiosidades.html"), name='curiosidades'),
-    path('curiosidades/eliminar/<int:pk>', eliminar_curiosidades.as_view(), name='eliminar_curiosidades'),
-    path('curiosidades/crear', crear_curiosidades.as_view(template_name = "gestion/curiosidades_crear.html"), name='crear_curiosidades'),
-    path('curiosidades/editar/<int:pk>', actualizar_curiosidades.as_view(template_name = "gestion/curiosidades_actualizar.html"), name='actualizar_curiosidades'),
-    #------- Gestión de eventos ------------------
-    path('eventos/', gestion_eventos.as_view( template_name="gestion/eventos.html"), name='eventos'),
-    path('eventos/eliminar/<int:pk>', eliminar_eventos.as_view(), name='eliminar_eventos'),
-    path('eventos/crear', crear_eventos.as_view(template_name = "gestion/eventos_crear.html"), name='crear_eventos'),
-    path('eventos/editar/<int:pk>', actualizar_eventos.as_view(template_name = "gestion/eventos_actualizar.html"), name='actualizar_eventos'),
     #------- Gestión de paginas de políticas ------------------
     path('paginas/', gestion_paginas.as_view( template_name="gestion/paginas.html"), name='paginas'),
     path('paginas/eliminar/<int:pk>', eliminar_paginas.as_view(), name='eliminar_paginas'),

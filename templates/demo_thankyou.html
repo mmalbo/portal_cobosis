@@ -1,0 +1,28 @@
+<!-- products/templates/products/demo_thankyou.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5 text-center">
+    <div class="card border-success mx-auto" style="max-width: 600px;">
+        <div class="card-header bg-success text-white">
+            <h2><i class="bi bi-check-circle-fill me-2"></i>Solicitud Recibida</h2>
+        </div>
+        <div class="card-body py-4">
+            <i class="bi bi-envelope-check display-1 text-success mb-4"></i>
+            <h3 class="card-title">¡Gracias por tu interés en {{ product.name }}!</h3>
+            <p class="card-text lead mt-4">
+                Hemos recibido tu solicitud y nos pondremos en contacto contigo en las próximas 24 horas 
+                para coordinar una demostración personalizada.
+            </p>
+            <div class="mt-4">
+                <a href="{% url 'home' %}" class="btn btn-outline-primary me-2">
+                    <i class="bi bi-house-door me-1"></i>Volver al inicio
+                </a>
+                <a href="{% url 'products:list' %}" class="btn btn-primary">
+                    <i class="bi bi-grid me-1"></i>Ver otros productos
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
