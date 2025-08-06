@@ -1,0 +1,87 @@
+<!-- products/templates/products/product_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Encabezado del producto -->
+    <div class="row mb-4">
+        <div class="col-lg-8">
+            <h1 class="display-4">{{ product.name }}</h1>
+            <p class="lead">{{ product.description }}</p>
+        </div>
+    </div>
+
+    <!-- Características y beneficios -->
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h3>Características Principales</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        {% for feature in features %}
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                            {{ feature|safe }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    <h3>Beneficios Clave</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        {% for benefit in benefits %}
+                        <li class="list-group-item">
+                            <i class="bi bi-star-fill text-warning me-2"></i>
+                            {{ benefit|safe }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modelo de negocio -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card border-info">
+                <div class="card-header bg-info text-white">
+                    <h3>Modelo de Negocio</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ product.business_model }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulario de solicitud -->
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <div class="card shadow">
+                <div class="card-header bg-cobosis text-white">
+                    <h3><i class="bi bi-calendar-check me-2"></i>Solicita una Demostración</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="bi bi-send me-2"></i>Enviar Solicitud
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

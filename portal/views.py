@@ -6,7 +6,6 @@ from datetime import datetime
 from pages.models import Paginas 
 from galeria.models import banner, imagenes, carrusel
 from enlac_preg.models import Pregunta, Enlaces
-from news.models import Curio, Event
 from django.utils.safestring import mark_safe
 
 from .models import *
