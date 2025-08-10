@@ -4,7 +4,7 @@
 
 {% block content %}
     <!-- Header-->
-    <header class="bg-dark py-5" style="background-image: url('../static/images/banner_prueba_2.jpg'); background-size: 100%; background-repeat: no-repeat;">
+    <header class="bg-dark py-5" style="background-image: url('../static/images/banner.webp'); background-size: 100%; background-repeat: no-repeat;">
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center" >
                 <div class="col-lg-8 col-xl-7 col-xxl-6">
@@ -23,29 +23,31 @@
     <section class="py-5" id="features">
         <div class="container px-5 my-3">
             <div class="row gx-5">
-                <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0" style="color: #0056b3;">Contribuimos a elevar la madurez digital de tu negocio</h2></div>
-                    <div class="col-lg-8">
-                        <div class="row gx-5 row-cols-1 row-cols-md-2">
-                            <div class="col mb-5 h-100"> <!--bg-primary-->
-                                <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-window-sidebar"><i class="bi bi-cloud-upload"></i></i></div>
-                                <h2 class="h5" style="color: #343a40;">Presencia Digital</h2>
-                                <p class="mb-0" style="color: #343a40;">Construimos tu identidad en la web y tus canales básicos en el mundo digital.</p>
-                            </div>
-                            <div class="col mb-5 h-100">
-                                <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-menu-button-wide"></i></div>
-                                <h2 class="h5" style="color: #343a40;">Digitalización de la información Empresarial</h2>
-                                <p class="mb-0" style="color: #343a40;">Convertimos información en formatos y flujos digitales.</p>
-                            </div>
-                            <div class="col mb-5 mb-md-0 h-100">
-                                <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-cpu"></i></div>
-                                <h2 class="h5" style="color: #343a40;">Informatización de los Procesos Empresariales</h2>
-                                <p class="mb-0" style="color: #343a40;">Automatizamos y optimizamos los flujos de trabajo y procesos empresariales específicos mediante el uso de tecnología de la información.</p>
-                            </div>
-                            <div class="col h-100">
-                                <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-cloud-plus"></i></div>
-                                <h2 class="h5" style="color: #343a40;">IA y Análisis de Datos para la Toma de Decisiones</h2>
-                                <p class="mb-0" style="color: #343a40;">Incorporamos la IA y el análisis avanzado para transformar radicalmente lo que se puede hacer con los datos gestionados digitalmente.</p>
-                            </div>
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h2 class="fw-bolder mb-0" style="color: #0056b3;">Contribuimos a elevar la madurez digital de tu negocio</h2>
+                    <img class="card-img-top img-fluid rounded-3 my-5" src="{% static 'images/logo.png'%}" style="max-width: 60%; max-height: 60%;" alt="..."  />
+                </div>
+                <div class="col-lg-8">
+                    <div class="row gx-5 row-cols-1 row-cols-md-2">                            
+                        <div class="col mb-5 h-100">
+                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-window-sidebar"><i class="bi bi-cloud-upload"></i></i></div>
+                            <h2 class="h5" style="color: #343a40;">Presencia Digital</h2>
+                            <p class="mb-0" style="color: #343a40;">Construimos tu identidad en la web y tus canales básicos en el mundo digital.</p>
+                        </div>
+                        <div class="col mb-5 h-100">
+                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-menu-button-wide"></i></div>
+                            <h2 class="h5" style="color: #343a40;">Digitalización de la información Empresarial</h2>
+                            <p class="mb-0" style="color: #343a40;">Convertimos información en formatos y flujos digitales.</p>
+                        </div>
+                        <div class="col mb-5 mb-md-0 h-100">
+                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-cpu"></i></div>
+                            <h2 class="h5" style="color: #343a40;">Informatización de los Procesos Empresariales</h2>
+                            <p class="mb-0" style="color: #343a40;">Automatizamos y optimizamos los flujos de trabajo y procesos empresariales específicos mediante el uso de tecnología de la información.</p>
+                        </div>
+                        <div class="col h-100">
+                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-cloud-plus"></i></div>
+                            <h2 class="h5" style="color: #343a40;">IA y Análisis de Datos para la Toma de Decisiones</h2>
+                            <p class="mb-0" style="color: #343a40;">Incorporamos la IA y el análisis avanzado para transformar radicalmente lo que se puede hacer con los datos gestionados digitalmente.</p>
                         </div>
                     </div>
                 </div>
@@ -64,42 +66,21 @@
                 </div>
             </div>
             <div class="row gx-5">
+                {%for p in products %}
+                {% if not p.servicio %}
+                {% if p.destacado %}
                 <div class="col-lg-3 mb-5">
                     <div class="card h-100 shadow border-0">
-                        <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                        <img class="card-img-top" src="{{p.get_image_url}}" alt="..." />
                         <div class="card-body p-4">
-                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Sistema Integral de Comercio Electrónico</h5></a>
-                            <p class="card-text mb-0">Tu negocio en línea.</p>
+                            <a class="text-decoration-none link-dark stretched-link" href="{% url 'detalle_prod' p.slug %}"><h5 class="card-title mb-3">{{p.nombre}}</h5></a>
+                            <p class="card-text mb-0">{{p.slogan}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 mb-5">
-                    <div class="card h-100 shadow border-0">
-                        <img class="card-img-top" src="https://dummyimage.com/600x350/adb5bd/495057" alt="..." />
-                        <div class="card-body p-4">
-                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Sistema de Gestión de Inventarios y Producción</h5></a>
-                            <p class="card-text mb-0">Controla tu cadena de valor.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 mb-5">
-                    <div class="card h-100 shadow border-0">
-                        <img class="card-img-top" src="https://dummyimage.com/600x350/6c757d/343a40" alt="..." />
-                        <div class="card-body p-4">
-                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Herramienta de Gestión de Capital Humano (HR)</h5></a>
-                            <p class="card-text mb-0">Simplifica la gestión de tu equipo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 mb-5">
-                    <div class="card h-100 shadow border-0">
-                        <img class="card-img-top" src="https://dummyimage.com/600x350/adb5bd/495057" alt="..." />
-                        <div class="card-body p-4">
-                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Sistema de gestión de evaluaciones en grupos</h5></a>
-                            <p class="card-text mb-0">Evalúa, mide y mejora el aprendizaje.</p>
-                        </div>
-                    </div>
-                </div>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -115,48 +96,31 @@
                 </div>
             </div>
             <div class="row gx-5">
+                {%for p in products %}
+                {% if p.servicio %}
+                {% if p.destacado %}
                 <div class="col-lg-4 mb-5">
                     <div class="card h-100 shadow border-0">
-                        <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
-                        <!-- <div class="small">
-                            <div class="text-muted">"Tu imagen digital hecha realidad"</div>
-                        </div> -->
+                        <img class="card-img-top" src="{{p.get_image_url}}" alt="..." />
                         <div class="card-body p-4">
-                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Desarrollo de portales institucionales</h5></a>
-                            <p class="card-text mb-0">Tu imagen digital hecha realidad.</p>
+                            <a class="text-decoration-none link-dark stretched-link" href="{% url 'detalle_prod' p.slug %}"><h5 class="card-title mb-3">{{p.nombre}}</h5></a>
+                            <p class="card-text mb-0">{{p.slogan}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-5">
-                    <div class="card h-100 shadow border-0">
-                        <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
-                        <div class="card-body p-4">
-                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Desarrollo de sistemas de gestión a la medida</h5></a>
-                            <p class="card-text mb-0">Software al ritmo de tu negocio.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-5">
-                    <div class="card h-100 shadow border-0">
-                        <img class="card-img-top" src="https://dummyimage.com/600x350/6c757d/343a40" alt="..." />
-                        <div class="card-body p-4">
-                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Análisis estadístico e inteligente de datos</h5></a>
-                            <p class="card-text mb-0">Convierte tus números en decisiones poderosas.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
+                {% endif %}
+                {% endif %}
+                {% endfor %}
             <!-- Call to actionbg-primary -->
             <aside class="bg-gradient rounded-3 p-4 p-sm-5 mt-5 my-5" style="background-color: #003a75;">
                 <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
                     <div class="mb-4 mb-xl-0">
-                        <div class="fs-3 fw-bold text-white">Contacta con nosotros sobre nuestros servicios y productos</div>
+                        <div class="fs-3 fw-bold text-white">Contáctanos para saber más sobre nuestros servicios y productos</div>
                     </div>
                     <div class="ms-xl-4">
                         <div class="input-group mb-2">
-                            <input class="form-control" type="text" placeholder="Email address..." aria-label="Email address..." aria-describedby="button-newsletter" />
-                            <button class="btn btn-outline-light" id="button-newsletter" type="button">Sign up</button>
+                            <input class="form-control" type="text" placeholder="Correo electrónico..." aria-label="Correo electrónico..." aria-describedby="button-newsletter" />
+                            <button class="btn btn-outline-light" id="button-newsletter" type="button">Enviar</button>
                         </div>
                         <div class="small text-white-50">Nos preocupamos por tu privacidad, por lo que nunca compartiremos tus datos.</div>
                     </div>

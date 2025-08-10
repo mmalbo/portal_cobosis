@@ -11,7 +11,7 @@
         <meta name="author" content="YCoca & MNK" />
         <meta property="og:description" content="CoBoSis: Coca-Albo Sistemas inteligentes">
         <meta property="og:type" content="website">
-        <meta property="og:image" content="{% static 'img/IsologoprincipalMuhia.png' %}">
+        <meta property="og:image" content="{% static 'images/logo.png' %}">
         {% block title %}
         <title>CoBosis - Transformación digital</title>
         {% endblock %}
@@ -31,20 +31,20 @@
             <!-- Navigation style="background-color: #003a75; " style="background: linear-gradient(135deg, #0056b3 0%, #000064 65%);"-->
             <nav class="navbar navbar-expand-lg" style="height: 30px;">
                 <div class="container px-3 py-0" style="height: min-content;">
-                    <a class="navbar-brand font-weight-bold" href="index.html" style="font-family: Monserrat; font-weight: 800;"><span class="font-weight-bold" style="color: #ff6b00;">CO</span><span class="font-weight-bold" style="color: #0056b3;">BO</span>SIS 
+                    <a class="navbar-brand font-weight-bold" href="index.html" style="font-family: Montserrat; font-weight: 800;"><span class="font-weight-bold" style="color: #ff6b00;">CO</span><span class="font-weight-bold" style="color: #0056b3;">BO</span>SIS 
                     <!--<img class="img-fluid rounded-3" style="max-width: 10%; max-height: 10%;" src="{% static 'images/logo.jpeg' %}" alt="CoBoSis"/>--></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-family: Montserrat;" >
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}" style="color: #003a75">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'quienes' %}" style="color: #003a75">Quienes Somos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html" style="color: #003a75">Contacto</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}" style="color: #003a75">Contacto</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="pricing.html">Portafolio</a></li>-->
-                            <li class="nav-item"><a class="nav-link" href="faq.html" style="color: #003a75">FAQ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'preguntas' %}" style="color: #003a75">FAQ</a></li>
                             <li class="nav-item dropdown" >
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #003a75;">Portafolio</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-overview.html" >Catálogo</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'catalogo' %}" >Catálogo</a></li>
                                     <li><a class="dropdown-item" href="portfolio-item.html" >Productos</a></li>
                                     <li><a class="dropdown-item" href="portfolio-item.html" >Servicios</a></li>
                                 </ul>
