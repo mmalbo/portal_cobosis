@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import DemoRequest, Product
+from .models import DemoRequest, Productos
 
 class ProductAdmin(admin.ModelAdmin):
     pass
@@ -8,4 +8,4 @@ class ProductAdmin(admin.ModelAdmin):
     pass """
 
 #admin.site.register(DemoRequest, DemoRequest)
-admin.site.register(Product, ProductAdmin)
+admin.site.register(Productos, ProductAdmin)

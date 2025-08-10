@@ -2,12 +2,8 @@
 from django.urls import path
 from . import views
 
-app_name = 'productos'
-
 urlpatterns = [
-    path('tienda-virtual/', views.product_detail, 
-         {'slug': 'tienda-virtual'}, name='ecommerce_detail'),
-    path('inventory/', views.product_detail, 
-         {'slug': 'gippro'}, name='inventory_detail'),
+    path('productos/list/', views.catalogo_prod, name='catalogo_prod'),
+    path('productos/<slug:slug>/', views.product_detail, name='detalle_prod'),
     # Agregar rutas similares para otros productos...
 ]
