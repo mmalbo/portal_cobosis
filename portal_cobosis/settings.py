@@ -166,7 +166,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Configuraci�n de los bloques de edici�n de texto
+# Configuración de los bloques de edición de texto
 customColorPalette = [
         {
             'color': 'hsl(4, 90%, 58%)',
