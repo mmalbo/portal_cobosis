@@ -1,2 +1,4 @@
 /static/
 */migrations/*
+*/settings.py
+*.sqlite3

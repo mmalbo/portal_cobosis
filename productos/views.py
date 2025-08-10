@@ -11,11 +11,14 @@ from django.utils.safestring import mark_safe
 
 # products/views.py
 from django.shortcuts import render, get_object_or_404
-from .models import Product
+from .models import Productos
 from .forms import DemoRequestForm
 
+def catalogo_prod(request):
+    pass
+
 def product_detail(request, slug):
-    product = get_object_or_404(Product, slug=slug)
+    product = get_object_or_404(Productos, slug=slug)
     
     if request.method == 'POST':
         form = DemoRequestForm(request.POST)
@@ -33,5 +36,5 @@ def product_detail(request, slug):
         'features': product.features_list(),
         'benefits': product.benefits_list()
     }
+    
     return render(request, 'product_detail.html', context)
-
