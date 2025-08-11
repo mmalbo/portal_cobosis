@@ -9,12 +9,17 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-xxl-6">
                     <div class="text-center my-5">
-                        <h1 class="fw-bolder mb-3">Nuestra misión impulsar la transformación digital de pequeños negocios y empresas.</h1>
-                        <p class="lead fw-normal text-muted mb-4"> Mediante soluciones tecnológicas integrales, accesibles y personalizadas podemos ayudar 
-                            a pequeños negocios y empresas en Cuba, México y Latinoamérica a lograr su transformación digital. Nos especializamos en desarrollar 
+                        <h1 class="fw-bolder mb-3">Nuestra misión:</h1>
+                        <p class="lead fw-normal text-muted mb-4"> Mediante soluciones informáticas integrales, accesibles y personalizadas podemos ayudar 
+                            a pequeños negocios y empresas a lograr su transformación digital. Nos especializamos en desarrollar 
                             portales web, tiendas virtuales y sistemas de gestión integrados con análisis inteligente de datos y asistentes autónomos, para 
                             optimizar procesos, mejorar la toma de decisiones y potenciar el crecimiento sostenible de nuestros clientes.</p>
-                        <a class="btn btn-primary btn-lg" href="#scroll-target">Conoce nuestra historia</a>
+                        <h1 class="fw-bolder mb-3">Aspiramos a:</h1>
+                        <p class="lead fw-normal text-muted mb-4">Ser aliado estratégico confiable para la digitalización de pequeñas empresas en 
+                                mercados emergentes, de reconocido prestigio nacional e internacional y destacándonos por nuestra innovación adaptada 
+                                a las necesidades locales y el uso de tecnologías escalables. Con un banco de productos y servicios de alta calidad, 
+                                sustentados en los principales avances científicos en el área de la Inteligencia Artificial y las 
+                                Ciencias de la Computación en general."</p>
                     </div>
                 </div>
             </div>
@@ -28,14 +33,19 @@
             <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
             <div class="col-lg-6">
                 <h2 class="fw-bolder">Nuestros inicios</h2>
-                <p class="lead fw-normal text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est, ut esse a labore aliquam beatae expedita. Blanditiis impedit numquam libero molestiae et fugit cupiditate, quibusdam expedita, maiores eaque quisquam.</p>
+                <p class="lead fw-normal text-muted mb-0">Aún estamos en nuestros inicios... Todo comenzó en 
+                    pandemia de la COVID-19, sentados, trabajando en las laptops surgen las primeras ideas de 
+                    organizar nuestro emprendimiento. Aparece un primer trabajo, útil para probarnos. En 2023
+                    comienza el camino de formalización, con la licencia de trabajador autónomo y el primer
+                    contrato de prestación de servicios.       
+                </p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- About section two-->
-<section class="py-5" style="background-color: #e6f0ff;">
+<!-- <section class="py-5" style="background-color: #e6f0ff;">
     <div class="container px-5 my-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
@@ -45,26 +55,25 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Team members section-->
     <section class="py-5 bg-light">
-        <div class="container px-5 my-5">
+        <div class="container px-5 my-2">
             <div class="text-center">
                 <h2 class="fw-bolder">Nuestro equipo</h2>
                 <p class="lead fw-normal text-muted mb-5">Trabajamos por un servicio de calidad</p>
             </div>
-            <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+            <div class="row gx-12 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
                 {% for e in equi %}
-                <div class="col mb-5 mb-5 mb-xl-0">
+                <div class="col col-lg-4 mb-2 mb-xl-2">
                     <div class="text-center">
                         <img class="img-fluid rounded-circle mb-4 px-4" src="{{ e.get_image_url }}" alt="{{e.nombre_apellidos}}" />
                         <h5 class="fw-bolder">{{e.nombre_apellidos}}</h5>
                         <div class="fst-italic text-muted">{{e.cargo}}</div>
                     </div>
                 </div>
-                {% endfor %}
-                
+                {% endfor %}                
             </div>
         </div>
     </section>
