@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <section class="py-5">
+        <div class="container px-5 my-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-6">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bolder">Catálogo de Servicios</h1>
+                        <p class="lead fw-normal text-muted mb-0">Todo lo que necesitas para llevar tu negocio al mundo digital.</p>
+                    </div>
+                </div>
+            </div>
+            {%for p in products %}
+            {% if p.servicio %}
+            <div class="row">
+                <div class="col-lg-4 position-relative mb-5">
+                    <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="{% url 'detalle_prod' p.slug %}">{{p.nombre}}</a>
+                    <img class="img-fluid rounded-3 mb-3" src="{{p.get_image_url}}" alt="..." style="width: 70%; height: 80%;"/>
+                </div>
+                <div class="col-lg-8">
+                    <p style="font-size: large;">{{p.descripcion}}</p>
+                    <p><span style="font-weight: bold;">Modelo negocio: </span> {{p.modelo_negocio}}</p>
+                    <a class="text-decoration-none" href="{% url 'detalle_prod' p.slug %}">Explorar detalles<i class="bi-arrow-right"></i>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}            
+        </div>
+    </section>
+</main>
+{% endblock %}

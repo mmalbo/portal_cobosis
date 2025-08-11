@@ -63,7 +63,6 @@ INSTALLED_APPS = [
     'widget_tweaks',
     
     'portal.apps.PortalConfig',
-    'contact.apps.ContactConfig',
     'productos.apps.ProductosConfig',
     'pages',#.apps.PagesCongig',
     'registration.apps.RegistrationConfig',

@@ -45,8 +45,8 @@
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #003a75;">Portafolio</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
                                     <li><a class="dropdown-item" href="{% url 'catalogo' %}" >Catálogo</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html" >Productos</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html" >Servicios</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'catalogo_p' %}" >Productos</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'catalogo_s' %}" >Servicios</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -66,7 +66,7 @@
                         <span class="text-white mx-1">&middot;</span>
                         <a class="link-light small" href="#!">Términos</a>
                         <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contacto</a>
+                        <a class="link-light small" href="{% url 'contacto' %}"q9ew-ruiopContacto</a>
                     </div>
                 </div>
             </div>

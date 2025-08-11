@@ -1,11 +1,14 @@
-from calendar import HTMLCalendar, Calendar
+#from calendar import HTMLCalendar, Calendar
 from pkgutil import get_data
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from datetime import datetime
 from django.utils.safestring import mark_safe
 
 from .models import *
+from .forms import *
 from productos.models import *
 from equipo.models import *
 from pages.models import Paginas 
@@ -37,23 +40,50 @@ def nosotros(request):
 def contacto(request):
     return render(request, "contacto.html", {})
 
+def contact(request):
+    contact_form = ContactForm
+    if request.method == "POST":
+        contact_form = contact_form(data=request.POST)
+        if contact_form.is_valid:
+            name = request.POST.get('name', '')
+            email = request.POST.get('email', '')
+            tlf = request.POST.get('tlf', '')
+            content = request.POST.get('content', '')
+            
+            e_mail = EmailMessage(
+                "CoBoSis: Nuevo mensaje de la página",
+                "De {} <{}>\n\n{}".format(name, email, tlf, content),
+                ['ycocab@gmail.com'],
+            )
+            try:
+                e_mail.send()
+                print("ok")
+                return redirect(reverse('contacto'), "?ok")
+            except:
+                return redirect(reverse('contacto'), "?fail")
+    return render(request, "contacto.html", {'form':contact_form})
+
 def preguntas(request):
     #Preg = Pregunta.objects.all()
     return render(request, "faq.html", locals())
 
 def catalogo(request):
-    return render(request, "portfolio-overview.html", {})
+    products=Productos.objects.all()
+    return render(request, "portfolio-overview.html", locals())
 
 def productos(request):
-    g_imagenes = imagenes.objects.all()
-    img1 = imagenes.objects.get(pk=1)
-    return render(request, "products.html", locals())
+    products=Productos.objects.all()
+    return render(request, "portfolio-productos.html", locals())
 
 def servicios(request):
-    return render(request, "service.html", {})
+    products=Productos.objects.all()
+    return render(request, "portfolio-servicios.html", locals())
 
 def test(request):
     return render(request, "index_copy.html", locals())
+
+def test_item(request):
+    return render(request, "portfolio-item.html", locals())
 
 
 #return HttpResponse("Hola mundo. Al fin tenemos una aplicacion visible.")
