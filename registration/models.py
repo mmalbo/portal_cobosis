@@ -15,6 +15,7 @@ class Profile(models.Model):
     avatar = models.ImageField(upload_to='profiles', null=True, blank=True, verbose_name = "Foto")
     bio = CKEditor5Field(default = "Texto", null=True, blank=True, verbose_name="Biografía")
     link = models.URLField(max_length=200, null=True, blank=True, verbose_name = "Enlace")
+    test = models.CharField()
 
     @property
     def name(self):
