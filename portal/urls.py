@@ -7,14 +7,17 @@ from . import views
 urlpatterns = [
     path('', views.inicio, name="inicio"),
     path('nosotros/', views.nosotros, name="quienes"),
-    path('contacto/', views.contacto, name="contacto"),
+    path('contacto/', views.contact, name="contacto"),
     path('preguntas/', views.preguntas, name="preguntas"),
     path('catalogo/', views.catalogo, name="catalogo"),
+    path('catalogo/productos', views.productos, name="catalogo_p"),
+    path('catalogo/servicios', views.servicios, name="catalogo_s"),
     
     path('productos/', include('productos.urls')),
     path('accounts', include('django.contrib.auth.urls')),
     path('accounts', include('registration.urls')),
     
     path('test/', views.test, name='index'),
+    path('test-item/', views.test_item, name='test_item'),
 ]
 
