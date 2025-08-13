@@ -1,0 +1,20 @@
+<!-- chatbot.html -->
+<div id="chat-container">
+    <div id="chat-messages"></div>
+    <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
+    <button id="send-btn">Enviar</button>
+  </div>
+  
+  <script>
+    const chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chatbot/');
+    
+    chatSocket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        // Mostrar respuesta en la interfaz
+    };
+    
+    document.querySelector('#send-btn').onclick = function() {
+        const message = document.getElementById('user-input').value;
+        chatSocket.send(JSON.stringify({'message': message}));
+    };
+  </script>
