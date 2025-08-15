@@ -4,6 +4,7 @@
 
 {% block content %}
     <!-- Header-->
+
     <header class="bg-dark py-5" style="background-image: url('../static/images/banner.webp'); background-size: 100%; background-repeat: no-repeat;">
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center" >
@@ -19,6 +20,7 @@
             <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"></div><!--<img class="img-fluid rounded-3 my-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." />-->
         </div>
     </header>
+<main>
     <!-- Features section-->
     <section class="py-5" id="features">
         <div class="container px-5 my-3">
@@ -129,5 +131,56 @@
             </aside>
         </div>
     </section>
+
+    <!-- Botón flotante para abrir el chat -->
+<div id="chat-button" class="position-fixed bottom-0 end-0 mb-4 me-4" style="z-index: 1000;">
+    <button class="btn btn-primary rounded-circle p-3 shadow-lg" id="open-chat">
+        <i class="bi bi-chat-dots-fill"></i> <!-- Icono de chat -->
+    </button>
+</div>
+
+<!-- Contenedor del chat (inicialmente oculto) -->
+<div id="chat-container" class="bg-white shadow-lg">
+    <div class="chat-header d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">Asistente Virtual</h6>
+        <button id="close-chat" class="btn btn-sm btn-light">
+            <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+    
+    <div class="chat-messages" id="chat-messages">
+        <div class="message-bot">
+            ¡Hola! Soy CoboChat, tu asistente virtual. Le ayudamos a conocer más sobre nosotros, nuestros productos y servicios.
+        </div>
+    </div>
+    
+    <div class="chat-input p-2">
+        <div class="input-group">
+            <input type="text" id="user-input" class="form-control" 
+                   placeholder="Escribe tu pregunta aquí..." aria-label="Mensaje">
+            <button class="btn btn-primary" type="button" id="send-btn">
+                <i class="bi bi-send-fill"></i>
+            </button>
+        </div>
+    </div>
+</div>
 </main>
+
+
+<!-- <script>
+    const chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chatbot/');
+    
+    chatSocket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        console.log('Respuesta:', data.message);
+        // Mostrar respuesta en la interfaz
+    };
+    
+    document.querySelector('#send-btn').onclick = function() {
+        const message = document.getElementById('user-input').value;
+        chatSocket.send(JSON.stringify({'message': message}));
+    };
+  </script> -->
+
+
 {% endblock %}
