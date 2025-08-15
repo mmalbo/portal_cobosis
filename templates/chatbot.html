@@ -3,13 +3,14 @@
     <div id="chat-messages"></div>
     <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
     <button id="send-btn">Enviar</button>
-  </div>
+</div>
   
   <script>
     const chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chatbot/');
     
     chatSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
+        console.log('Respuesta:', data.message);
         // Mostrar respuesta en la interfaz
     };
     

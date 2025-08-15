@@ -34,6 +34,7 @@ class Productos(models.Model):
     images = models.ImageField(upload_to='productos_images', null=True, blank=True, verbose_name = "Logo o imagen")
     servicio = models.BooleanField(default=False, verbose_name = "Servicio")
     destacado = models.BooleanField(default=True, verbose_name = "Destacar en Front")
+    precio = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
         return self.nombre

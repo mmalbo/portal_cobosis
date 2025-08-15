@@ -46,7 +46,7 @@ class FAQ(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return self.text
+        return self.pregunta.text
     
 class Enlaces(models.Model):
     institucion = models.CharField(null = False, blank = False, max_length=200, verbose_name="Entidad de ínteres")
