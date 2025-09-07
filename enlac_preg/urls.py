@@ -5,5 +5,5 @@ from . import views
 #from main import views
 
 urlpatterns = [
-    path('', views.show_Preg_Resp , name='preg_resp'),
+    path('faq', views.show_Preg_Resp , name='preg_resp'),
 ]
