@@ -6,6 +6,7 @@ from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from datetime import datetime
 from django.utils.safestring import mark_safe
+from django.db.models import Prefetch
 
 from .models import *
 from .forms import *
@@ -13,7 +14,7 @@ from productos.models import *
 from equipo.models import *
 from pages.models import Paginas 
 from galeria.models import banner, imagenes, carrusel
-from enlac_preg.models import Pregunta, Enlaces
+from enlac_preg.models import Pregunta, Enlaces, FAQ
 
 
 # Create your views here.
@@ -64,8 +65,25 @@ def contact(request):
     return render(request, "contacto.html", {'form':contact_form})
 
 def preguntas(request):
-    #Preg = Pregunta.objects.all()
-    return render(request, "faq.html", locals())
+    Preg = Pregunta.objects.prefetch_related(Prefetch('faq_set', 
+                                                 queryset=FAQ.objects.select_related('respuesta').order_by('etiqueta'),
+                                                    to_attr='faqs_con_respuestas')).all()
+
+    preg_agrup = [
+        {
+            'pregunta': p.text,
+            'respuestas': [faq.respuesta for faq in p.faqs_con_respuestas]
+        }
+        for p in Preg
+        if p.faqs_con_respuestas
+    ]
+    """ for pregunta in Preg:
+        respuestas = [faq.respuesta.text for faq in pregunta.faq_set.all()]
+        if respuestas:
+            preg_agrup.append({'pregunta':pregunta.text,
+                               'respuestas':respuestas}) """
+    
+    return render(request, "faq.html", {'preg_agrup':preg_agrup})
 
 def catalogo(request):
     products=Productos.objects.all()
