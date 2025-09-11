@@ -1,0 +1,84 @@
+<!-- chatbot/templates/chatbot/chatbot_widget.html -->
+{% load static %}
+
+<!-- Botón flotante para abrir el chat -->
+<div id="chat-button" class="position-fixed bottom-0 end-0 mb-4 me-4" style="z-index: 1000;">
+    <button class="btn btn-primary rounded-circle p-3 shadow-lg" id="open-chat" 
+            title="Chatear con nuestro asistente">
+        <i class="bi bi-chat-dots-fill fs-4"></i>
+    </button>
+</div>
+
+<!-- Contenedor del chat (inicialmente oculto) -->
+<div id="chat-container" class="bg-white shadow-lg">
+    <div class="chat-header d-flex justify-content-between align-items-center">
+        <div>
+            <i class="bi bi-robot me-2"></i>
+            <strong>Asistente Virtual</strong>
+        </div>
+        <div>
+            <button id="minimize-chat" class="btn btn-sm btn-light me-2" title="Minimizar">
+                <i class="bi bi-dash-lg"></i>
+            </button>
+            <button id="close-chat" class="btn btn-sm btn-light" title="Cerrar">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+    </div>
+    
+    <div class="chat-messages" id="chat-messages">
+        <!-- Mensaje de bienvenida inicial -->
+        <div class="message-bot">
+            <div class="fw-bold">🤖 Asistente Virtual</div>
+            ¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?
+            <br>
+            <small class="text-muted">Puedo responder sobre productos, precios y soporte técnico.</small>
+        </div>
+    </div>
+    
+    <!-- Indicador de "escribiendo" -->
+    <div class="typing-indicator" id="typing-indicator">
+        <div class="typing-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <span class="ms-2">El asistente está escribiendo...</span>
+    </div>
+    
+    <div class="chat-input">
+        <div class="input-group">
+            <input type="text" id="user-input" class="form-control" 
+                   placeholder="Escribe tu pregunta..." 
+                   aria-label="Mensaje para el asistente"
+                   autocomplete="off">
+            <button class="btn btn-primary" type="button" id="send-btn" title="Enviar mensaje">
+                <i class="bi bi-send-fill"></i>
+            </button>
+        </div>
+        <div class="mt-2 text-center">
+            <small class="text-muted">
+                <i class="bi bi-shield-check"></i>
+                Tus conversaciones son privadas y seguras
+            </small>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para errores -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Error de conexión</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>No se pudo conectar con el asistente. Por favor, intenta nuevamente.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
+            </div>
+        </div>
+    </div>
+</div>
