@@ -1,4 +1,6 @@
 /static/
+/static_root/
+/media/
 */migrations/*
 */settings.py
 */__pycache__/*

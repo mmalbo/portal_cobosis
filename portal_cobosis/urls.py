@@ -26,6 +26,7 @@ urlpatterns = [
 	path('gestion/', include('gestion.urls')),
     path('accounts/', include('registration.urls')),
     path('productos/', include('productos.urls')),
+    path('chatbot/', include('chatbot.urls')),   
     
     path("ckeditor5/", include('django_ckeditor_5.urls')),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
