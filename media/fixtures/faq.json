@@ -1,0 +1,136 @@
+[ 
+  { "model": "pregunta",
+    "id": 1,
+    "fields":
+    {
+      "created": "2025-09-06 04:12:17.974370",
+      "updated": "2025-09-06 04:12:17.974370",
+      "text": "¿Qué hacemos?"
+    }
+  },
+  { "model": "pregunta",
+    "id": 2,
+    "fields":
+    {
+      "created": "2025-09-06 04:12:23.683052",
+      "updated": "2025-09-06 04:12:23.683052",
+      "text": "¿Que ofrecemos?"
+    }
+  },
+  {
+    "model": "respuesta",
+    "id": 1,
+    "fields":
+    {
+      "text": "Desarrollamos software a la medida.",
+      "created": "2025-09-06 04:12:38.271402",
+      "updated": "2025-09-06 04:12:38.271402"
+    }
+  },
+  {
+    "model": "respuesta",
+    "id": 2,
+    "fields":
+    {
+      "text": "Informatizamos procesos productivos.",
+      "created": "2025-09-06 04:12:47.467407",
+      "updated": "2025-09-06 04:12:47.467407"
+    }
+  },
+  {
+    "model": "respuesta",
+    "id": 3,
+    "fields":
+    {
+      "text": "Brindamos la posibilidad de crearte tu presencia digital institucional.",
+      "created": "2025-09-06 04:12:54.984905",
+      "updated": "2025-09-06 04:12:54.984905"
+    }
+  },
+  {
+    "model": "respuesta",
+    "id": 4,
+    "fields":
+    {
+      "text": "Productos informáticos desarrollados sobre tecnologías libres.",
+      "created": "2025-09-06 04:12:54.984905",
+      "updated": "2025-09-06 04:12:54.984905"
+    }
+  },
+  {
+    "model": "respuesta",
+    "id": 5,
+    "fields":
+    {
+      "text": "Optimización de la gestión empresarial a través de la informatización.",
+      "created": "2025-09-06 04:12:54.984905",
+      "updated": "2025-09-06 04:12:54.984905"
+    }
+  },
+  {"model": "faq",
+    "id": 1,
+    "fields": 
+    {
+      "etiqueta": "A",
+      "created": "2025-09-06 04:13:06.582771",
+      "updated": "2025-09-06 04:13:06.582771",
+      "pregunta_id": 1,
+      "respuesta_id": 1
+    }
+  },
+  {"model": "faq",
+    "id": 2,
+    "fields":
+    {
+      "etiqueta": "B",
+      "created": "2025-09-06 04:13:16.938482",
+      "updated": "2025-09-06 04:13:16.938482",
+      "pregunta_id": 1,
+      "respuesta_id": 2
+    }
+  },
+  {"model": "faq",
+    "id": 3,
+    "fields":
+    {
+      "etiqueta": "Z",
+      "created": "2025-09-06 04:13:25.415386",
+      "updated": "2025-09-06 04:13:25.415386",
+      "pregunta_id": 1,
+      "respuesta_id": 3
+    }
+  },
+  {"model": "faq",
+    "id": 4,
+    "fields":
+    {
+      "etiqueta": "Z",
+      "created": "2025-09-06 04:13:25.415386",
+      "updated": "2025-09-06 04:13:25.415386",
+      "pregunta_id": 2,
+      "respuesta_id": 1
+    }
+  },
+  {"model": "faq",
+    "id": 5,
+    "fields":
+    {
+      "etiqueta": "Z",
+      "created": "2025-09-06 04:13:25.415386",
+      "updated": "2025-09-06 04:13:25.415386",
+      "pregunta_id": 2,
+      "respuesta_id": 4
+    }
+  },
+  {"model": "faq",
+    "id": 6,
+    "fields":
+    {
+      "etiqueta": "Z",
+      "created": "2025-09-06 04:13:25.415386",
+      "updated": "2025-09-06 04:13:25.415386",
+      "pregunta_id": 2,
+      "respuesta_id": 5
+    }
+  }
+]

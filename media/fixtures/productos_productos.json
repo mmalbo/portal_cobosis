@@ -1,0 +1,171 @@
+[
+  { "model": "productos.Productos",
+    "pk": 1,
+    "fields": {
+      "nombre": "Tienda Virtual",
+      "slug": "tienda-virtual",
+      "slogan": "Tu Negocio En-línea",
+      "descripcion": "Más que una tienda virtual, tu centro de operaciones digital. Vende en línea, controla tu inventario en tiempo real, factura con facilidad y toma decisiones basadas en datos de tus ventas.",
+      "caracteristicas": "Plataforma de E-commerce completa y fácil de usar.;Gestión integrada de inventario (almacén).;Módulo de facturación electrónica.;Análisis estadísticos e inteligentes de ventas, clientes y productos.",
+      "beneficios": "Aumenta tus ventas llegando a más clientes, 24/7.;Optimiza tu inventario, evita excesos o faltantes.;Automatiza la facturación, ahorra tiempo y reduce errores.;Toma decisiones inteligentes con datos claros de tu rendimiento comercial.",
+      "modelo_negocio": "Suscripción mensual/anual escalable (según volumen de productos, transacciones o funcionalidades avanzadas). Posibilidad de pago único por desarrollo + mantenimiento.",
+      "images": "productos_images/Tienda.png",
+      "destacado": 1,
+      "servicio": 0,
+      "precio": 0
+    }
+  },
+  {
+    "model": "productos.Productos",
+    "pk": 2,
+    "fields": {
+      "nombre": "Sistema de Gestión de Inventarios y Producción",
+      "slug": "gippro",
+      "slogan": "Control Total de tu Cadena de Valor",
+      "descripcion": "Digitaliza y optimiza el flujo de materiales, desde la compra de materias primas hasta el producto final. Ideal para pequeñas manufacturas, talleres y almacenes.",
+      "caracteristicas": "Gestión de compras de materias primas e insumos.;Control preciso de entradas y salidas de almacén (inventario).;Seguimiento de la entrada y salida de la producción.;Análisis estadísticos de costos, rendimiento y eficiencia.",
+      "beneficios": "Reduce costos por pérdidas, robos o compras innecesarias.;Aumenta la eficiencia al tener visibilidad total de tu operación.;Mejora la planificación de compras y producción.;Identifica cuellos de botella y oportunidades de mejora con análisis de datos.",
+      "modelo_negocio": "Suscripción mensual/anual basada en el tamaño de la operación (número de usuarios, SKUs, ubicaciones). Desarrollo personalizado posible.",
+      "images": "productos_images/Gippro.png",
+      "destacado": 1,
+      "servicio": 0,
+      "precio": 0
+    }
+  },
+  {
+    "model": "productos.Productos",
+    "pk": 3,
+    "fields": {
+      "nombre": "Sistema de Gestión de Capital Humano (HR)",
+      "slug": "capithum",
+      "slogan": "Simplifica la Gestión de tu Equipo",
+      "descripcion": "Automatiza y centraliza las tareas clave de RRHH para pequeños negocios: contratos, nóminas e impuestos, todo adaptado a las normas locales.",
+      "caracteristicas": "Gestión centralizada de trabajadores y sus contratos.;Generación automática de nóminas con posibilidad de ajuste y aprobación.;Cálculo de impuestos laborales según normativa vigente (Cuba/México).;Registro de vacaciones, ausencias y otros beneficios.",
+      "beneficios": "Ahorra tiempo valioso automatizando cálculos complejos.;Minimiza errores y riesgos legales con cálculos precisos según la ley.;Centraliza la información de tu equipo, accesible y segura.;Garantiza cumplimiento normativo en materia laboral y fiscal.",
+      "modelo_negocio": "Suscripción mensual/anual por número de empleados gestionados. Actualizaciones incluidas por cambios normativos.",
+      "images": "productos_images/CapitHum.png",
+      "destacado": 1,
+      "servicio": 0,
+      "precio": 0
+    }
+  },
+  {
+    "model": "productos.Productos",
+    "pk": 4,
+    "fields": {
+      "nombre": "Sistema de Gestión de Evaluaciones en Grupos",
+      "slug": "prodes",
+      "slogan": "Evalúa, Mide y Mejora el Aprendizaje",
+      "descripcion": "Plataforma flexible para gestionar grupos (estudiantes, capacitaciones), evaluadores, calificaciones y generar reportes de desempeño.",
+      "caracteristicas": "Gestión de grupos de estudiantes o participantes.;Administración de evaluadores y asignaciones.;Registro y cálculo de notas/calificaciones.;Generación de reportes estadísticos de desempeño grupal e individual.",
+      "beneficios": "Organiza eficientemente grupos y evaluaciones.;Agiliza el proceso de calificación y retroalimentación.;Obtén insights claros sobre el progreso y áreas de mejora del grupo.;Centraliza la información académica o de desempeño.",
+      "modelo_negocio": "Suscripción mensual/anual por número de usuarios activos (estudiantes/evaluadores) o grupos gestionados. Ideal para academias, cursos y formación interna empresarial.",
+      "images": "productos_images/GesEv.png",
+      "destacado": 1,
+      "servicio": 0,
+      "precio": 0
+    }
+  },
+  {
+    "model": "productos.Productos",
+    "pk": 5,
+    "fields": {
+      "nombre": "Sistema de Gestión de Servicios en Línea",
+      "slug": "online-serv",
+      "slogan": "Experiencias de Servicio Excepcionales, Desde la Oferta hasta la Satisfacción.",
+      "descripcion": "Gestiona todo el ciclo de vida de tus servicios: cotización, asignación, seguimiento en tiempo real y evaluación final por el cliente.",
+      "caracteristicas": "Oferta y cotización de servicios.;Gestión de clientes y solicitudes de servicio.;Seguimiento en tiempo real del estado del servicio (asignado, en progreso, completado).;Encuestas de satisfacción y evaluación del servicio por el cliente.",
+      "beneficios": "Mejora la experiencia del cliente con transparencia y seguimiento.;Optimiza la asignación y productividad de tu equipo de servicio.;Mide la satisfacción para identificar fortalezas y áreas de mejora.;Automatiza el flujo de trabajo desde la solicitud hasta el cierre y feedback.",
+      "modelo_negocio": "Suscripción mensual/anual basada en el número de técnicos/agentes de servicio o volumen de tickets/servicios gestionados.",
+      "images": "productos_images/SerLin.png",
+      "destacado": 0,
+      "servicio": 0,
+      "precio": 0
+    }
+  },
+  {
+    "model": "productos.Productos",
+    "pk": 6,
+    "fields": {
+      "nombre": "Desarrollo de Portales Institucionales",
+      "slug": "portales",
+      "slogan": "Tu imagen digital, hecha realidad.",
+      "descripcion": "Sitios web corporativos que transmiten profesionalismo y confianza. Más que una presencia online, tu tarjeta de visita digital las 24 horas.",
+      "caracteristicas": "Diseño responsive adaptado a dispositivos móviles.;Gestión de contenidos intuitiva.;Integración con redes sociales y mapas.;SEO básico integrado para mejor posicionamiento.",
+      "beneficios": "Proyecta credibilidad* con un sitio profesional.;Atrae nuevos clientes* con presencia digital permanente.;Actualiza contenido fácilmente* sin conocimientos técnicos.;Adaptable a cualquier industria* o tamaño de empresa.",
+      "modelo_negocio": "Precio único por desarrollo + mantenimiento anual opcional. Paquetes según páginas y funcionalidades.",
+      "images": "productos_images/4950002327956336183.jpg",
+      "destacado": 1,
+      "servicio": 1,
+      "precio": 0
+    }
+  },
+  {
+    "model": "productos.Productos",
+    "pk": 7,
+    "fields": {
+      "nombre": "Desarrollo de Sistemas de Gestión a la Medida",
+      "slug": "sist-gestion",
+      "slogan": "Software al ritmo de tu negocio",
+      "descripcion": "Soluciones personalizadas que automatizan tus procesos únicos. Deja atrás las limitaciones de sistemas genéricos.",
+      "caracteristicas": "Análisis de procesos previo sin costo.;Desarrollo modular escalable.;Integración con sistemas existentes.;Soporte técnico prioritario.",
+      "beneficios": "Elimina cuellos de botella* en operaciones críticas.;Ahorra hasta 40% de tiempo* en procesos manuales.;Escala con tu crecimiento* sin cambiar de plataforma.;Competitividad única* con herramientas exclusivas.",
+      "modelo_negocio": "Desarrollo por fases + licencia anual. Costo basado en complejidad y horas de desarrollo.",
+      "images": "productos_images/4950002327956336180.jpg",
+      "destacado": 1,
+      "servicio": 1,
+      "precio": 0
+    }
+  },
+  {
+    "model": "productos.Productos",
+    "pk": 8,
+    "fields": {
+      "nombre": "Análisis Estadísticos e Inteligentes de Datos",
+      "slug": "estadisticos",
+      "slogan": "Convierte tus números en decisiones poderosas.",
+      "descripcion": "Transformamos tus datos en insights accionables. Descubre patrones, oportunidades y riesgos ocultos en tu operación.",
+      "caracteristicas": "Dashboards interactivos personalizados.;Reportes automáticos programables.;Alertas tempranas de anomalías.;Integración con múltiples fuentes de datos.",
+      "beneficios": "Reduce la incertidumbre* en decisiones estratégicas.;Identifica oportunidades* de ahorro y crecimiento.;Predice tendencias* con modelos estadísticos avanzados.;Monitorea KPIs en tiempo real* desde cualquier dispositivo.",
+      "modelo_negocio": "Suscripción mensual según volumen de datos + configuración inicial.",
+      "images": "productos_images/4950002327956336182.jpg",
+      "destacado": 1,
+      "servicio": 1,
+      "precio": 0
+    }
+  },
+  {
+    "model": "productos.Productos",
+    "pk": 9,
+    "fields": {
+      "nombre": "Gestión de Dominios y Hosting",
+      "slug": "hostdom",
+      "slogan": "Tu hogar digital en manos expertas.",
+      "descripcion": "Administración integral de tu presencia online. Duerme tranquilo mientras cuidamos tu infraestructura digital.",
+      "caracteristicas": "Registro y renovación automática de dominios.;Hosting optimizado para Cuba.;Certificados SSL incluidos.;Copias de seguridad diarias.",
+      "beneficios": "Evita caídas costosas* con monitoreo 24/7.;Protege tu marca* con gestión centralizada.;Mejora velocidad* con servidores locales.;Cumple requisitos legales* de protección de datos.",
+      "modelo_negocio": "Paquetes mensuales/anuales con escalamiento por tráfico y almacenamiento.",
+      "images": "productos_images/Generico_V2YySPa.png",
+      "destacado": 0,
+      "servicio": 1,
+      "precio": 0
+    }
+  },
+  {
+    "model": "productos.Productos",
+    "pk": 10,
+    "fields": {
+      "nombre": "Personalización de Sistemas Libres",
+      "slug": "sist-libres",
+      "slogan": "Libertad tecnológica con soporte real.",
+      "descripcion": "Potenciamos soluciones open-source con adaptaciones prácticas para tu negocio. Lo mejor de dos mundos: sin ataduras ni riesgos.\r\n*Sistemas Habituales:*  \r\nmermaid\r\ngraph LR\r\nA[Moodle] --> E[Educación]\r\nB[OwnCloud] --> G[Gestión Documental]\r\nC[Suite CRM] --> V[Ventas]\r\nD[Matomo] --> A[Analítica Web]",
+      "caracteristicas": "Instalación y configuración de Moodle, OwnCloud, etc.;Personalización de interfaces y flujos.;Integración entre sistemas.;Capacitación práctica para equipos.",
+      "beneficios": "Evita costos de licencias* elevadas.;Adapta herramientas* a tus procesos reales.;Independencia tecnológica* sin proveedor único.;Mantenimiento especializado* de soluciones libres.",
+      "modelo_negocio": "Costo por implementación + soporte mensual por sistema.",
+      "images": "productos_images/Generico_1XsAPG8.png",
+      "destacado": 0,
+      "servicio": 1,
+      "precio": 0
+    }
+  }
+]

@@ -2,11 +2,11 @@ import os
 import sys
 sys.path.insert(0, os.path.dirname(__file__))
 
-INTERP = "/virtualenv/proyectos_muhia/3.11/bin/python3.11"
+INTERP = "/virtualenv/portal_cobosis/3.11/bin/python3.11"
 
-environ=os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proyectos_muhia.settings')
+environ = os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portal_cobosis.settings')
 
-from proyectos_muhia.wsgi import app
+from portal_cobosis.wsgi import app
 application = app
 
 #def application(environ, start_response):
