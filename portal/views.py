@@ -27,7 +27,7 @@ def inicio(request):
     catalog = carrusel.objects.all() """
 
     products=Productos.objects.all()
-    equip=Miembro.objects.all()
+    equip=Profile.objects.all()
 
     return render(request, "index.html", locals())
 
@@ -35,7 +35,7 @@ def inicio_mant(request):
     return render(request, "pagina_mantenimiento.html", {})
 
 def nosotros(request):
-    equi = Miembro.objects.all().reverse()
+    equi = Profile.objects.all().reverse()
     return render(request, "about.html", locals())
 
 def contacto(request):
@@ -66,7 +66,7 @@ def contact(request):
 
 def preguntas(request):
     Preg = Pregunta.objects.prefetch_related(Prefetch('faq_set', 
-                                                 queryset=FAQ.objects.select_related('respuesta').order_by('etiqueta'),
+                                                 queryset=FAQ.objects.filter(visible=True).select_related('respuesta').order_by('etiqueta'),
                                                     to_attr='faqs_con_respuestas')).all()
 
     preg_agrup = [

@@ -35,7 +35,8 @@ class Respuesta(models.Model):
 class FAQ(models.Model):
     pregunta = models.ForeignKey(Pregunta, null=False, on_delete=models.CASCADE, verbose_name="Pregunta") 
     respuesta = models.ForeignKey(Respuesta, null=True, on_delete=models.CASCADE, verbose_name='Respuesta')
-    etiqueta = models.CharField(max_length=200, verbose_name='etiquetas para la búsqeda y relaciones')
+    etiqueta = models.CharField(max_length=200, verbose_name='Etiquetas para la búsqueda y relaciones')
+    visible = models.BooleanField(default=False, verbose_name="Visible al público")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 

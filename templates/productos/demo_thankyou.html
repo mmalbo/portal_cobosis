@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- Page content-->
+    <section class="py-5">
+        <div class="container px-5">
+            <!-- Contact form bg-light bg-primary -->
+            <div class="rounded-3 py-5 px-4 px-md-5 mb-5" style="background-color: #fff2e6;">
+                <div class="text-center mb-5">
+                    <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color:#0056b3;"><i class="bi bi-envelope" ></i></div>
+                        <h1 class="fw-bolder">Gracias por hacernos llegar su solicitud</h1>
+                    </div>
+                </div>
+                <!-- Contact cards-->
+                <div class="row gx-5 row-cols-1 row-cols-lg-3 py-5">
+                    <div class="col">
+                        <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color:#0056b3;"><i class="bi bi-chat-dots"></i></div>
+                        <div class="h5 mb-2">Conversa directamente con nosotros</div>
+                        <p class="text-muted mb-0">Conéctate con nuestros especialistas.</p>
+                    </div>
+
+                    <div class="col">
+                        <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color:#0056b3;"><i class="bi bi-question-circle"></i></div>
+                        <div class="h5">Centro de soporte</div>
+                        <p class="text-muted mb-0">Explora nuestra sección de preguntas y respuesta para encontrar las respuestas.</p>
+                    </div>
+
+                    <div class="col">
+                        <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color:#0056b3;"><i class="bi bi-telephone"></i></div>
+                        <div class="h5">Llámanos</div>
+                        <p class="text-muted mb-0">Puedes llamar durante el horario habitual de trabajo al (+53) 58 236469.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

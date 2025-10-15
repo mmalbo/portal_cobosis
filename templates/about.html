@@ -22,7 +22,7 @@
     </header>
 
 <!-- About section one bg-light-->
-<section class="py-5" id="scroll-target" style="background-color: #e6f0ff;">
+<!-- <section class="py-5" id="scroll-target" style="background-color: #e6f0ff;">
     <div class="container px-5 my-5" >
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- About section two-->
 <!-- <section class="py-5" style="background-color: #e6f0ff;">
@@ -48,25 +48,27 @@
 </section> -->
 
 <!-- Team members section-->
-    <section class="py-5 bg-light">
-        <div class="container px-5 my-5">
-            <div class="text-center">
-                <h2 class="fw-bolder">Nuestro equipo</h2>
-                <p class="lead fw-normal text-muted mb-5">Trabajamos por un servicio de calidad</p>
-            </div>
-            <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
-                {% for e in equi %}
-                <div class="col mb-5 mb-5 mb-xl-0">
-                    <div class="text-center">
-                        <img class="img-fluid rounded-circle mb-4 px-4" src="{{ e.get_image_url }}" alt="{{e.nombre_apellidos}}" />
-                        <h5 class="fw-bolder">{{e.nombre_apellidos}}</h5>
-                        <div class="fst-italic text-muted">{{e.cargo}}</div>
-                    </div>
-                </div>
-                {% endfor %}
-                
-            </div>
+<section class="py-5 bg-light">
+    <div class="container px-5 my-5">
+        <div class="text-center">
+            <h2 class="fw-bolder">Nuestro equipo</h2>
+            <p class="lead fw-normal text-muted mb-5">Trabajamos por un servicio de calidad</p>
         </div>
-    </section>
+        <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+            {% for e in equi %}
+            <div class="col mb-5 mb-5 mb-xl-0">
+                <div class="text-center">
+                    <img class="img-fluid rounded-circle mb-4 px-4" src="{{ e.get_image_url }}" alt="{{e.nombre}}" />
+                    <a class="nav-link" href="{% url 'profile_detail' e.user.username %}" style="color: #003a75"> 
+                        <h5 class="fw-bolder">{{e.name}}</h5>
+                    </a>
+                    <div class="fst-italic text-muted">{{e.title}}</div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>
 </main>
 {% endblock %}
