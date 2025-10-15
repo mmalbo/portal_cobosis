@@ -3,52 +3,189 @@
 {% load static %}
 
 {% block content %}
-    <!-- Header-->
-
-    <header class="bg-dark py-5" style="background-image: url('../static/images/banner.webp'); background-size: 100%; background-repeat: no-repeat;">
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center justify-content-center" >
-                <div class="col-lg-8 col-xl-7 col-xxl-6">
-                    <div class="my-5 text-center text-xl-start">
-                        <h1 class="display-5 fw-bolder text-white mb-2">Optimizamos tu esfuerzo, multiplicamos tu éxito</h1>
-                        <p class="lead fw-normal text-white-50 mb-4">Contribuimos a la Transformación Digital de tu negocio, con soluciones informáticas hechas a la medida.</p>
-                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-outline-light btn-lg px-4" href="{% url 'catalogo' %}">Catálogo</a>
+    <!-- Header con imagen completa -->
+    <header class="banner-section position-relative overflow-hidden">
+        <div class="banner-container">
+            <img src="{% static 'images/banner.webp' %}" alt="Banner CoBoSis" class="banner-image">
+            <div class="banner-overlay"></div>
+        </div>
+        <div class="container px-3 px-lg-5 position-relative z-index-1">
+            <div class="row gx-5 align-items-center justify-content-center banner-content-wrapper">
+                <div class="col-12 col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="banner-content text-center text-lg-start py-4 py-lg-5">
+                        <h1 class="banner-title text-white mb-3">Optimizamos tu esfuerzo, multiplicamos tu éxito</h1>
+                        <p class="banner-text text-white-50 mb-4">Contribuimos a la Transformación Digital de tu negocio, con soluciones informáticas hechas a la medida.</p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start">
+                            <a class="btn btn-outline-light btn-lg px-4" href="/catalogo/">Catálogo</a>
                         </div>
                     </div>
                 </div>
-            <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"></div><!--<img class="img-fluid rounded-3 my-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." />-->
+            </div>
         </div>
     </header>
+
+    <style>
+        /* Estilos específicos para el banner con imagen completa */
+        .banner-section {
+            background-color: white; /* #343a40;  Color de respaldo */
+            position: relative;
+            min-height: 500px;
+            overflow: hidden;
+        }
+        
+        .banner-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Muestra la imagen completa sin recortar */
+            object-position: center;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .banner-content-wrapper {
+            min-height: 60vh;
+        }
+        
+        .banner-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+        
+        .banner-text {
+            font-size: 1.25rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .position-relative.z-index-1 {
+            z-index: 1;
+        }
+        
+        .banner-content {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        /* Media queries para responsividad */
+        @media (max-width: 992px) {
+            .banner-title {
+                font-size: 2rem;
+            }
+            
+            .banner-text {
+                font-size: 1.1rem;
+            }
+            
+            .banner-content-wrapper {
+                min-height: 50vh;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .banner-section {
+                min-height: 400px;
+            }
+            
+            .banner-title {
+                font-size: 1.75rem;
+            }
+            
+            .banner-text {
+                font-size: 1rem;
+            }
+            
+            .banner-content {
+                padding: 1.5rem;
+                margin: 0 10px;
+            }
+            
+            .banner-content-wrapper {
+                min-height: 40vh;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .banner-section {
+                min-height: 350px;
+            }
+            
+            .banner-title {
+                font-size: 1.5rem;
+            }
+            
+            .banner-text {
+                font-size: 0.9rem;
+            }
+            
+            .btn-lg {
+                padding: 0.5rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .banner-content-wrapper {
+                min-height: 35vh;
+            }
+        }
+              /* Alternativa: Si la imagen es muy grande y quieres que se adapte mejor */
+              @media (max-width: 768px) and (orientation: portrait) {
+            .banner-image {
+                object-fit: cover; /* En móviles en vertical, puedes usar cover */
+                object-position: top; /* Ajusta según dónde esté el contenido importante */
+            }
+        }
+    </style>
+
 <main>
     <!-- Features section-->
     <section class="py-5" id="features">
-        <div class="container px-5 my-3">
+        <div class="container px-3 px-lg-5 my-3">
             <div class="row gx-5">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h2 class="fw-bolder mb-0" style="color: #0056b3;">Contribuimos a elevar la madurez digital de tu negocio</h2>
-                    <img class="card-img-top img-fluid rounded-3 my-5" src="{% static 'images/logo.png'%}" style="max-width: 60%; max-height: 60%;" alt="..."  />
+                <div class="col-lg-4 mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="fw-bolder mb-0 " style="color: #0056b3;">Contribuimos a elevar la madurez digital de tu negocio</h2>
+                    <!--card-img-top,  max-height: 60%;-->
+                    <img class="img-fluid rounded-3 my-5 mx-auto d-block d-lg-inline" src="{% static 'images/logo.png'%}" style="max-width: 60%;" alt="Logo CoBoSis"  />
                 </div>
                 <div class="col-lg-8">
                     <div class="row gx-5 row-cols-1 row-cols-md-2">                            
                         <div class="col mb-5 h-100">
-                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-window-sidebar"><i class="bi bi-cloud-upload"></i></i></div>
-                            <h2 class="h5" style="color: #343a40;">Presencia Digital</h2>
+                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-globe2"></i></div>
+                            <h2 class="h5" style="color: #0056b3;">Presencia Digital</h2>
                             <p class="mb-0" style="color: #343a40;">Construimos tu identidad en la web y tus canales básicos en el mundo digital.</p>
                         </div>
                         <div class="col mb-5 h-100">
-                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-menu-button-wide"></i></div>
-                            <h2 class="h5" style="color: #343a40;">Digitalización de la información Empresarial</h2>
+                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-file-earmark-text"></i><i class="bi bi-cloud-arrow-up"></i></div>
+                            <h2 class="h5" style="color: #0056b3;">Digitalización de la información Empresarial</h2>
                             <p class="mb-0" style="color: #343a40;">Convertimos información en formatos y flujos digitales.</p>
                         </div>
                         <div class="col mb-5 mb-md-0 h-100">
-                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-cpu"></i></div>
-                            <h2 class="h5" style="color: #343a40;">Informatización de los Procesos Empresariales</h2>
+                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-diagram-3"></i></div>
+                            <h2 class="h5" style="color: #0056b3;">Informatización de los Procesos Empresariales</h2>
                             <p class="mb-0" style="color: #343a40;">Automatizamos y optimizamos los flujos de trabajo y procesos empresariales específicos mediante el uso de tecnología de la información.</p>
                         </div>
                         <div class="col h-100">
-                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-cloud-plus"></i></div>
-                            <h2 class="h5" style="color: #343a40;">IA y Análisis de Datos para la Toma de Decisiones</h2>
+                            <div class="feature bg-gradient text-white rounded-3 mb-3" style="background-color: #ff6b00;"><i class="bi bi-bar-chart"></i><i class="bi bi-lightbulb"></i></div>
+                            <h2 class="h5" style="color: #0056b3;">IA y Análisis de Datos para la Toma de Decisiones</h2>
                             <p class="mb-0" style="color: #343a40;">Incorporamos la IA y el análisis avanzado para transformar radicalmente lo que se puede hacer con los datos gestionados digitalmente.</p>
                         </div>
                     </div>
@@ -58,12 +195,12 @@
     </section>   
     <!-- Productos y Servicios -->
     <section class="py-1">
-        <div class="container px-5">
+        <div class="container px-3 px-lg-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-8 col-xl-6">
                     <div class="text-center">
                         <h2 class="fw-bolder" style="color: #0056b3;">Nuestros productos</h2>
-                        <p class="lead fw-normal mb-5" style="color: #343a40;">Te ofrecemos productos profesionales que potencian las fortalezas de tu negocio.</p>
+                        <p class="lead fw-normal mb-5" style="color: #343a40;">Sistemas listos para adaptarse a tu negocio, en un breve espacio de tiempo.</p>
                     </div>
                 </div>
             </div>
@@ -71,7 +208,7 @@
                 {%for p in products %}
                 {% if not p.servicio %}
                 {% if p.destacado %}
-                <div class="col-lg-3 mb-5">
+                <div class="col-lg-3 col-md-6 mb-5">
                     <div class="card h-100 shadow border-0">
                         <img class="card-img-top" src="{{p.get_image_url}}" alt="..." />
                         <div class="card-body p-4">
@@ -88,7 +225,7 @@
     </section>
     
     <section class="py-1">
-        <div class="container px-5">
+        <div class="container px-3 px-lg-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-8 col-xl-6">
                     <div class="text-center">
@@ -101,7 +238,7 @@
                 {%for p in products %}
                 {% if p.servicio %}
                 {% if p.destacado %}
-                <div class="col-lg-4 mb-5">
+                <div class="col-lg-4 col-md-6 mb-5">
                     <div class="card h-100 shadow border-0">
                         <img class="card-img-top" src="{{p.get_image_url}}" alt="..." />
                         <div class="card-body p-4">
@@ -132,14 +269,14 @@
         </div>
     </section>
 
-     <!-- Botón flotante para abrir el chat -->
-<!--<div id="chat-button" class="position-fixed bottom-0 end-0 mb-4 me-4" style="z-index: 1000;">
+<!-- Botón flotante para abrir el chat 
+<div id="chat-button" class="position-fixed bottom-0 end-0 mb-4 me-4" style="z-index: 1000;">
     <button class="btn btn-primary rounded-circle p-3 shadow-lg" id="open-chat">
-        <i class="bi bi-chat-dots-fill"></i> 
+        <i class="bi bi-chat-dots-fill"></i> Icono de chat
     </button>
-</div>
+</div>-->
 
-Contenedor del chat (inicialmente oculto)
+<!-- Contenedor del chat (inicialmente oculto) 
 <div id="chat-container" class="bg-white shadow-lg">
     <div class="chat-header d-flex justify-content-between align-items-center">
         <h6 class="mb-0">Asistente Virtual</h6>
@@ -162,7 +299,7 @@ Contenedor del chat (inicialmente oculto)
                 <i class="bi bi-send-fill"></i>
             </button>
         </div>
-    </div> 
+    </div>
 </div>-->
 </main>
 

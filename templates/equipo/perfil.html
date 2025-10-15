@@ -1,0 +1,613 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Profesional - Mi Empresa</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-orange: #FF6B35;
+            --secondary-blue: #004E89;
+            --light-orange: #FF9E64;
+            --light-blue: #1A659E;
+            --background-light: #F7F9FC;
+        }
+        
+        body {
+            background-color: var(--background-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .profile-header {
+            background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--light-blue) 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23FF6B35" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,192C672,181,768,139,864,138.7C960,139,1056,181,1152,186.7C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center bottom;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            color: var(--secondary-blue);
+            border-left: 4px solid var(--primary-orange);
+            padding-left: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--light-orange);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-orange);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--light-orange);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background: linear-gradient(to right, var(--secondary-blue), var(--light-blue));
+            color: white;
+            border-radius: 10px 10px 0 0 !important;
+            padding: 1rem 1.5rem;
+            border: none;
+        }
+        
+        .badge-orange {
+            background-color: var(--primary-orange);
+            color: white;
+        }
+        
+        .badge-blue {
+            background-color: var(--secondary-blue);
+            color: white;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-orange), var(--light-orange));
+            border-radius: 4px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-blue);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-orange);
+            transform: translateY(-3px);
+        }
+        
+        .contact-info li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            width: 30px;
+            color: var(--primary-orange);
+        }
+        
+        .nav-pills .nav-link {
+            color: var(--secondary-blue);
+            border-radius: 30px;
+            margin: 0 5px 10px 0;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-pills .nav-link.active {
+            background: linear-gradient(to right, var(--primary-orange), var(--light-orange));
+            color: white;
+        }
+        
+        .nav-pills .nav-link:hover:not(.active) {
+            background-color: rgba(255, 107, 53, 0.1);
+        }
+        
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-orange);
+            top: 10%;
+            right: 10%;
+        }
+        
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--secondary-blue);
+            bottom: 10%;
+            left: 5%;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .profile-header {
+                padding: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header del perfil -->
+    <header class="profile-header">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center text-md-start">
+                    <img src="{{ profile.get_image_url }}" 
+                         alt="Foto de perfil" class="profile-img">
+                </div>
+                <div class="col-md-9 mt-4 mt-md-0">
+                    <h1 class="display-5 fw-bold">{{profile.title}} {{profile.name}}</h1>
+                    <p class="lead mb-3">{{profile.cargo|safe}}</p>
+                    <p class="mb-4">{{profile.bio|safe}}</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <!-- Columna izquierda - Información principal -->
+            <div class="col-lg-8">
+                <!-- Navegación por pestañas -->
+                <ul class="nav nav-pills mb-4" id="profileTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button" role="tab">Experiencia</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab">Estudios</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="projects-tab" data-bs-toggle="tab" data-bs-target="#projects" type="button" role="tab">Trabajos</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="publications-tab" data-bs-toggle="tab" data-bs-target="#publications" type="button" role="tab">Publicaciones</button>
+                    </li>
+                </ul>
+                
+                <!-- Contenido de las pestañas -->
+                <div class="tab-content" id="profileTabsContent">
+                    <!-- Experiencia Profesional -->
+                    <div class="tab-pane fade show active" id="experience" role="tabpanel">
+                        <h3 class="section-title">Experiencia Profesional</h3>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Director de Transformación Digital</h5>
+                                        <h6 class="card-subtitle mb-2 text-primary">TechSolutions Corp.</h6>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge badge-orange">Ene 2020 - Actualidad</span>
+                                            <span class="badge badge-blue">Madrid, España</span>
+                                        </div>
+                                        <p class="card-text">Liderazgo de equipos multidisciplinarios para la implementación de estrategias de digitalización en empresas del sector financiero.</p>
+                                        <ul>
+                                            <li>Gestión de proyectos de transformación digital con presupuestos superiores a 2M€</li>
+                                            <li>Implementación de sistemas de análisis de datos para la toma de decisiones</li>
+                                            <li>Coordinación de equipos de hasta 25 profesionales</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Consultor Senior en Tecnología</h5>
+                                        <h6 class="card-subtitle mb-2 text-primary">Innovation Partners</h6>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge badge-orange">Mar 2015 - Dic 2019</span>
+                                            <span class="badge badge-blue">Barcelona, España</span>
+                                        </div>
+                                        <p class="card-text">Asesoramiento a empresas en procesos de digitalización y optimización de recursos tecnológicos.</p>
+                                        <ul>
+                                            <li>Diseño de arquitecturas de sistemas empresariales</li>
+                                            <li>Análisis y mejora de procesos empresariales</li>
+                                            <li>Implementación de soluciones CRM y ERP</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Estudios -->
+                    <div class="tab-pane fade" id="education" role="tabpanel">
+                        <h3 class="section-title">Estudios Realizados</h3>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Doctorado en Ciencias de la Computación</h5>
+                                        <h6 class="card-subtitle mb-2 text-primary">Universidad Politécnica de Madrid</h6>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge badge-orange">2012 - 2016</span>
+                                        </div>
+                                        <p class="card-text">Tesis: "Modelos predictivos para la optimización de procesos empresariales mediante inteligencia artificial"</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Máster en Business Intelligence</h5>
+                                        <h6 class="card-subtitle mb-2 text-primary">IE Business School</h6>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge badge-orange">2010 - 2012</span>
+                                        </div>
+                                        <p class="card-text">Especialización en análisis de datos y toma de decisiones empresariales.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ingeniería en Sistemas Computacionales</h5>
+                                        <h6 class="card-subtitle mb-2 text-primary">Universidad de Barcelona</h6>
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <span class="badge badge-orange">2005 - 2010</span>
+                                        </div>
+                                        <p class="card-text">Graduado con honores. Proyecto final: "Sistema de gestión integral para PYMES"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trabajos Realizados -->
+                    <div class="tab-pane fade" id="projects" role="tabpanel">
+                        <h3 class="section-title">Trabajos Realizados</h3>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Sistema de Gestión Integral</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text"><strong>Rol:</strong> Líder de Proyecto</p>
+                                        <p class="card-text">Desarrollo e implementación de un sistema de gestión integral para una cadena de retail con más de 50 sucursales.</p>
+                                        <div class="mb-3">
+                                            <span class="badge bg-light text-dark me-1">ERP</span>
+                                            <span class="badge bg-light text-dark me-1">CRM</span>
+                                            <span class="badge bg-light text-dark">Business Intelligence</span>
+                                        </div>
+                                        <p class="card-text"><small class="text-muted">Cliente: RetailCorp • Duración: 18 meses</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Plataforma de E-commerce</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text"><strong>Rol:</strong> Arquitecto de Soluciones</p>
+                                        <p class="card-text">Diseño e implementación de una plataforma de e-commerce con integración de sistemas de pago y logística.</p>
+                                        <div class="mb-3">
+                                            <span class="badge bg-light text-dark me-1">E-commerce</span>
+                                            <span class="badge bg-light text-dark me-1">UX/UI</span>
+                                            <span class="badge bg-light text-dark">Integración APIs</span>
+                                        </div>
+                                        <p class="card-text"><small class="text-muted">Cliente: ModaExpress • Duración: 12 meses</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Publicaciones -->
+                    <div class="tab-pane fade" id="publications" role="tabpanel">
+                        <h3 class="section-title">Publicaciones Realizadas</h3>
+                        
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">"Inteligencia Artificial aplicada a la optimización de cadenas de suministro"</h5>
+                                <p class="card-text"><strong>Revista:</strong> Journal of Business Technology</p>
+                                <p class="card-text"><strong>Rol:</strong> Autor principal</p>
+                                <p class="card-text"><strong>Año:</strong> 2021</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Ver publicación</a>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">"Metodologías ágiles en proyectos de transformación digital"</h5>
+                                <p class="card-text"><strong>Revista:</strong> International Journal of Digital Transformation</p>
+                                <p class="card-text"><strong>Rol:</strong> Coautor</p>
+                                <p class="card-text"><strong>Año:</strong> 2019</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Ver publicación</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Eventos y Premios (siempre visibles) -->
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <h3 class="section-title">Eventos</h3>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Conferencia Internacional de Tecnología 2022</h5>
+                                <p class="card-text"><strong>Ponencia:</strong> "El futuro de la digitalización empresarial"</p>
+                                <p class="card-text"><strong>País:</strong> Alemania • <strong>Año:</strong> 2022</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Foro Latinoamericano de Innovación</h5>
+                                <p class="card-text"><strong>Ponencia:</strong> "Transformación digital en economías emergentes"</p>
+                                <p class="card-text"><strong>País:</strong> México • <strong>Año:</strong> 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h3 class="section-title">Premios y Reconocimientos</h3>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Premio a la Innovación Tecnológica</h5>
+                                <p class="card-text">Otorgado por la Asociación Española de Tecnología</p>
+                                <p class="card-text"><strong>Fecha:</strong> Noviembre 2020</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Mejor Proyecto de Digitalización</h5>
+                                <p class="card-text">Reconocimiento en los Digital Business Awards</p>
+                                <p class="card-text"><strong>Fecha:</strong> Mayo 2019</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Columna derecha - Información adicional -->
+            <div class="col-lg-4">
+                <!-- Habilidades -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-star me-2"></i>Habilidades</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Transformación Digital</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Análisis de Datos</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Gestión de Proyectos</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Inteligencia Artificial</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Idiomas -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-language me-2"></i>Idiomas</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Español</span>
+                                <span>Nativo</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Inglés</span>
+                                <span>Avanzado</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Francés</span>
+                                <span>Intermedio</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Información de contacto -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-address-card me-2"></i>Contacto</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled contact-info">
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>alejandro.rodriguez@empresa.com</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>+34 612 345 678</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Madrid, España</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Certificaciones -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-award me-2"></i>Certificaciones</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fas fa-certificate text-warning me-2"></i>
+                                <span>PMP - Project Management Professional</span>
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-certificate text-warning me-2"></i>
+                                <span>Scrum Master Certified</span>
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-certificate text-warning me-2"></i>
+                                <span>Google Cloud Professional</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% endblock %}

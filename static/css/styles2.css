@@ -124,12 +124,20 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.text-cobosis {
+.text-blue-cobosis {
   color: var(--cobosis-blue);
 }
 
-.bg-cobosis-light {
+.bg-cobosis-light-blue {
   background-color: var(--cobosis-light-blue);
+}
+
+.text-orange-cobosis {
+  color: var(--cobosis-orange);
+}
+
+.bg-cobosis-light-orange {
+  background-color: var(--cobosis-light-orange);
 }
 
 .header {
@@ -10909,3 +10917,4 @@ html {
   background-repeat: no-repeat;
   min-height: 15rem;
 }
+

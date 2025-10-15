@@ -61,7 +61,6 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'django_ckeditor_5',
     'widget_tweaks',
-    'channels',
     'chatbot',
     
     'portal.apps.PortalConfig',
@@ -124,11 +123,11 @@ DATABASES = {
 }
 
 # Configuración de Channels (para producción usa Redis)
-CHANNEL_LAYERS = {
+""" CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
     }
-}
+} """
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -154,11 +153,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE = "es_ES"
 
-#LANGUAGE = (
-#    ("es", _("Spanish")),
-#)
-
-TIME_ZONE = "America/Chicago" #'UTC'
+TIME_ZONE = "America/New_York" #'UTC'
 
 USE_I18N = True
 
@@ -166,6 +161,8 @@ USE_L10N =True
 
 USE_TZ = True
 
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
