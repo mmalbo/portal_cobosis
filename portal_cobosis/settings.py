@@ -161,8 +161,22 @@ USE_L10N =True
 
 USE_TZ = True
 
+# Configuración de sesiones para APIs
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = True  # En producción con HTTPS
 CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+
+LOGIN_URL = '/admin/login/'
+
+# Para APIs REST
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

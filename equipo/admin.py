@@ -78,7 +78,7 @@ class ProfileAdmin(admin.ModelAdmin):
     
     fieldsets = (
         ('Información básica', {
-            'fields': ('user', 'title', 'bio', 'profile_photo', 'avatar')
+            'fields': ('user', 'title', 'cargo', 'bio', 'profile_photo', 'avatar')
         }),
         ('Información de contacto', {
             'fields': ('location', 'email', 'phone')
