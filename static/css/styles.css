@@ -10909,3 +10909,35 @@ html {
   background-repeat: no-repeat;
   min-height: 15rem;
 }
+
+/* Estilos para el modal de autenticación */
+#authModal .modal-content {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#authModal .modal-header {
+  border-radius: 15px 15px 0 0;
+}
+
+#authModal .form-label {
+  font-weight: 600;
+  color: #495057;
+}
+
+#authModal .btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+
+/* Animación de entrada del modal */
+.modal.fade .modal-dialog {
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1);
+}
