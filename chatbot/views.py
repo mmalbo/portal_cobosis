@@ -98,6 +98,7 @@ def chatbot_api(request):
             }, status=400)
         
         # Obtener respuesta del chatbot (puedes pasar el historial si lo necesitas)
+        print("Voy a encorar respuesta")
         bot_response = encontrar_respuesta(user_message)
         return JsonResponse({
             'status': 'success',

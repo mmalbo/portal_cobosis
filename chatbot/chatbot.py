@@ -272,6 +272,7 @@ class FAQChatbot:
 
 # Función principal para ejecutar el chatbot
 def encontrar_respuesta(pregunta_usuario):
+    print("En encontrar respuesta")
     bot = FAQChatbot()
     try:
         if pregunta_usuario.lower() in ['salir', 'exit', 'quit']:

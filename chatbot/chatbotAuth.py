@@ -17,7 +17,7 @@ def encontrar_respuesta(pregunta_usuario, usuario=None):
     pregunta = pregunta_usuario.lower()
     print(pregunta)
     # 1. Verificar si es una consulta de autenticación
-    if any(palabra in pregunta for palabra in ['iniciar sesión', 'login', 'autenticar', 'registrarse']):
+    if any(palabra in pregunta for palabra in ['iniciar sesión', 'login', 'autenticar', 'registrarse', 'entrar']):
         return "Para acceder a tus datos personales, necesito que te autentiques. Por favor, proporciona tu usuario y contraseña."
     
     # 2. Si el cliente está autenticado, buscar información personal

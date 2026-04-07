@@ -7,4 +7,5 @@ urlpatterns = [
     path('profile/<str:username>/', views.profile_detail, name='profile_detail'),
     path('my-profile/', views.my_profile, name='my_profile'),
     path('perfil/', views.perfilBase, name='perfil'),
+    path('perfil/<str:username>/pdf/', views.profile_pdf, name='profile_pdf'),
 ]
